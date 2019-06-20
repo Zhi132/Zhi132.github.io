@@ -88,7 +88,7 @@
 <meta property="og:description" content="HTML">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/06/18/实训-html/bg.jpg">
-<meta property="og:updated_time" content="2019-06-19T03:15:22.443Z">
+<meta property="og:updated_time" content="2019-06-19T13:14:18.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实训---html">
 <meta name="twitter:description" content="HTML">
@@ -361,14 +361,87 @@
 
 <h3 id="W3C标准"><a href="#W3C标准" class="headerlink" title="W3C标准"></a>W3C标准</h3><pre><code>1. 结构化标准语言(HTML,XHML)
 2. 表现标准语言(CSS)
-3. 行为标准(DOM)</code></pre><h3 id="meta设置"><a href="#meta设置" class="headerlink" title="meta设置"></a>meta设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;我的第一个网页&lt;/title&gt;</span><br><span class="line">&lt;!--设置过期--&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Expires&quot; content=&quot;0&quot;&gt;</span><br><span class="line">&lt;!--跳转页面--&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;refresh&quot; content=&quot;2:http://www.baidu.com&quot;&gt;</span><br><span class="line">&lt;!----&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Pragma&quot; content=&quot;No-cach&quot;&gt;</span><br><span class="line">&lt;!--无法被其他网页嵌套--&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Window-target&quot; content=&quot;_top&quot;&gt;</span><br><span class="line">&lt;!--网页特效--&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Page-Exit&quot;&gt;</span><br><span class="line">&lt;!--搜索关键字--&gt;</span><br><span class="line">&lt;meta name=&quot;Keywords&quot; lang=&quot;EN&quot; content=&quot;中北大学&quot;&gt;</span><br><span class="line">&lt;!--设置网页简介--&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;中北大学&quot;&gt;</span><br><span class="line">&lt;!--设置网址作者--&gt;</span><br><span class="line">&lt;meta name=&quot;Author&quot; content=&quot;银尘&quot;&gt;</span><br><span class="line">&lt;!--设置网站的版本--&gt;</span><br><span class="line">&lt;meta name=&quot;Copyright&quot; content=&quot;本页版权归银尘所有&quot;&gt;</span><br></pre></td></tr></table></figure>
+3. 行为标准(DOM)</code></pre><h3 id="meta设置"><a href="#meta设置" class="headerlink" title="meta设置"></a>meta设置</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>我的第一个网页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置过期--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Expires"</span> <span class="attr">content</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--跳转页面--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"2:http://www.baidu.com"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!----&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Pragma"</span> <span class="attr">content</span>=<span class="string">"No-cach"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--无法被其他网页嵌套--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Window-target"</span> <span class="attr">content</span>=<span class="string">"_top"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--网页特效--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Page-Exit"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--搜索关键字--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"Keywords"</span> <span class="attr">lang</span>=<span class="string">"EN"</span> <span class="attr">content</span>=<span class="string">"中北大学"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置网页简介--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"中北大学"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置网址作者--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"Author"</span> <span class="attr">content</span>=<span class="string">"银尘"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--设置网站的版本--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"Copyright"</span> <span class="attr">content</span>=<span class="string">"本页版权归银尘所有"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="页面布局分析"><a href="#页面布局分析" class="headerlink" title="页面布局分析"></a>页面布局分析</h3><h4 id="H5结构元素"><a href="#H5结构元素" class="headerlink" title="H5结构元素"></a>H5结构元素</h4><table>
+<thead>
+<tr>
+<th align="left">方法名</th>
+<th>作用位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">header</td>
+<td>头部</td>
+</tr>
+<tr>
+<td align="left">nav</td>
+<td>头部</td>
+</tr>
+<tr>
+<td align="left">aside</td>
+<td>侧面栏</td>
+</tr>
+<tr>
+<td align="left">section</td>
+<td>主题部分</td>
+</tr>
+<tr>
+<td align="left">article</td>
+<td>主题部分</td>
+</tr>
+<tr>
+<td align="left">footer</td>
+<td>尾部</td>
+</tr>
+</tbody></table>
+<h4 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h4><blockquote>
+<p>frameset—-现在不经常使用了</p>
+<p>iframe—基本都使用这个（灵活）</p>
+</blockquote>
 
       
     </div>
     
     
     
+
+	
+      
+	  <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/06/18/实训-html/">实训---html</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 银尘 的个人博客">银尘</a></p>
+  <p><span>发布时间:</span>2019年06月18日 - 16:06</p>
+  <p><span>最后更新:</span>2019年06月19日 - 21:14</p>
+  <p><span>原始链接:</span><a href="/2019/06/18/实训-html/" title="实训---html">http://yoursite.com/2019/06/18/实训-html/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/06/18/实训-html/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+		</div>
+      
+	
 
     
 
@@ -484,7 +557,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -495,7 +568,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -506,7 +579,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -555,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#W3C标准"><span class="nav-number">1.1.</span> <span class="nav-text">W3C标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meta设置"><span class="nav-number">1.2.</span> <span class="nav-text">meta设置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#W3C标准"><span class="nav-number">1.1.</span> <span class="nav-text">W3C标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meta设置"><span class="nav-number">1.2.</span> <span class="nav-text">meta设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面布局分析"><span class="nav-number">1.3.</span> <span class="nav-text">页面布局分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#H5结构元素"><span class="nav-number">1.3.1.</span> <span class="nav-text">H5结构元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架"><span class="nav-number">1.3.2.</span> <span class="nav-text">框架</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -585,11 +658,7 @@
   
 </div>
 
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
-</span>
-</div>
+
 
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>

@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/test/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/20/深入浅出-MySQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="银尘">
@@ -283,7 +283,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/18/test/" itemprop="url">test</a></h1>
+                <a class="post-title-link" href="/2019/06/20/深入浅出-MySQL/" itemprop="url">深入浅出-MySQL</a></h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T17:56:35+08:00">
-                2019-06-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T08:09:18+08:00">
+                2019-06-20
               </time>
             
 
@@ -305,6 +305,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL学习/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -335,7 +357,53 @@
       
         
           
-            
+            <h2 id="一、SQL基础"><a href="#一、SQL基础" class="headerlink" title="一、SQL基础"></a>一、SQL基础</h2><h4 id="1、SQL分类"><a href="#1、SQL分类" class="headerlink" title="1、SQL分类"></a>1、SQL分类</h4><ol>
+<li><p>DDL：数据定义语句</p>
+<ul>
+<li><p>创建数据库 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> test1</span><br><span class="line"><span class="comment">## 数据库中已有的</span></span><br><span class="line"><span class="number">1.</span>	information_schema:存储系统中的一些数据库对象信息</span><br><span class="line"><span class="number">2.</span>	cluster:存储了系统的集群信息</span><br><span class="line"><span class="number">3.</span>	mysql:	存储了系统的用户权限信息。</span><br><span class="line"><span class="number">4.</span>	<span class="keyword">test</span>:	系统自动创建的测试数据库。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> test1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> **();</span><br><span class="line"></span><br><span class="line">查看表的定义</span><br><span class="line">DESC **</span><br><span class="line"></span><br><span class="line">查看创建表的SQL语句</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> ** \G;</span><br><span class="line">在这里我们可以看到ENGINE（存储引擎）和CHARSET（字符集信息）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> emp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 修改表类型</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> emp <span class="keyword">modify</span> ename <span class="built_in">varchar</span>(<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 增加表字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> emp <span class="keyword">add</span> <span class="keyword">column</span> age <span class="built_in">int</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 删除表字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> emp <span class="keyword">drop</span> <span class="keyword">column</span> age;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 字段改名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> emp <span class="keyword">change</span> age age1 <span class="built_in">int</span>(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改字段排列顺序(可选项 first|after)</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> emp <span class="keyword">add</span> birth <span class="keyword">data</span> <span class="keyword">after</span> ename;</span><br><span class="line">	&gt; 修改字段age，将它放在最前边</span><br><span class="line">	<span class="keyword">alter</span> <span class="keyword">table</span> emp <span class="keyword">modify</span> age <span class="built_in">int</span>(<span class="number">3</span>) <span class="keyword">first</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 更改表名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> emp <span class="keyword">rename</span> emp1;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>DML：数据操作语句</p>
+<blockquote>
+<p>​    是对数据库中表记录的操作，主要包括表记录的插入、更新、删除和查询。</p>
+</blockquote>
+<ul>
+<li><p>插入记录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 插入语句</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> emp(<span class="number">1</span>,<span class="number">2</span>) <span class="keyword">values</span>(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 一次性插入多条语句</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> emp(<span class="number">1</span>,<span class="number">2</span>) <span class="keyword">values</span>(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新记录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 更新</span></span><br><span class="line"><span class="keyword">update</span> emp <span class="keyword">set</span> <span class="number">1</span>=<span class="number">1</span> wherh ename=<span class="string">'lisi'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 同时更新两个表与这个情况类似</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除记录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 删除</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> emp <span class="keyword">where</span> ename=<span class="string">'dony'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询记录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 查询</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp</span><br><span class="line"></span><br><span class="line"><span class="comment">## 查询不重复的记录</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> deptno <span class="keyword">from</span> emp;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 条件查询(=、&gt;、&lt;、&gt;=、&lt;=、!=)</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="number">1</span>=<span class="number">1</span> <span class="keyword">and</span> <span class="number">2</span>=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 排序和限制</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal;</span><br><span class="line">desc<span class="comment">----&gt;降序   </span></span><br><span class="line">asc<span class="comment">------&gt;升序</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 分页查询</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">limit</span> <span class="number">1</span>,<span class="number">3</span>  <span class="comment">-----&gt;第一个参数为起始偏移量，第二个为行数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 聚合</span></span><br><span class="line"><span class="keyword">select</span> [f1,f2,f3...]fun_name<span class="comment">------&gt;聚合函数  sun，count，max，min</span></span><br><span class="line"><span class="keyword">from</span> tablename</span><br><span class="line">[<span class="keyword">WHERE</span> where_contition] <span class="comment">-----&gt;条年间查询</span></span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> field1,field2	<span class="comment">-----&gt;分类聚合字段</span></span><br><span class="line">[<span class="keyword">WITH</span> <span class="keyword">ROLLUP</span>]]			<span class="comment">-----&gt;表名是否对分类聚合进行汇总</span></span><br><span class="line">[<span class="keyword">HAVING</span> where_contition]<span class="comment">-----&gt;对分类后的结果再进行条件的过滤</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 连接</span></span><br><span class="line"><span class="number">1</span>、内连接</span><br><span class="line">	仅选出两张表中互相匹配的记录</span><br><span class="line">	fx：查询所有雇员的名字和所在的部门名称</span><br><span class="line">	<span class="keyword">select</span> ename,deptname <span class="keyword">from</span> emp,dept <span class="keyword">where</span> emp.deptno=dept.deptno;</span><br><span class="line">2、外连接</span><br><span class="line">	左连接：包含所有左边表中的记录甚至是右边表中没有和它匹配的记录。</span><br><span class="line">	右连接：包含所有右边表中的记录甚至是左边表中没有和它匹配的记录。</span><br><span class="line">3、子查询（条件是另一<span class="keyword">select</span>语句的结果）</span><br><span class="line">	<span class="keyword">select</span> * fomr emp <span class="keyword">where</span> <span class="number">1</span> <span class="keyword">in</span>(<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> dept);</span><br><span class="line">	如果查询条件唯一，可以使用=代替in</span><br><span class="line">4、记录联合</span><br><span class="line">	UNION:		将UNION ALL后的结果进行一次DISTINCT</span><br><span class="line">	UNION ALL	把结果集直接合并在一起</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li>DCL：数据控制语句</li>
+</ol>
+
           
         
       
@@ -343,6 +411,160 @@
     
     
     
+
+	
+      
+	
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/Spring注解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="银尘">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/test2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/19/Spring注解/" itemprop="url">Spring注解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-19T15:40:17+08:00">
+                2019-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">Java知识点</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="核心容器"><a href="#核心容器" class="headerlink" title="核心容器"></a>核心容器</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/19/Spring注解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+	
+      
+	
 
     
 
@@ -490,6 +712,10 @@
     
     
 
+	
+      
+	
+
     
 
     
@@ -635,6 +861,10 @@
     
     
     
+
+	
+      
+	
 
     
 
@@ -782,6 +1012,10 @@
     
     
 
+	
+      
+	
+
     
 
     
@@ -909,6 +1143,10 @@
     
     
 
+	
+      
+	
+
     
 
     
@@ -983,7 +1221,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -994,7 +1232,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1005,7 +1243,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1068,11 +1306,7 @@
   
 </div>
 
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
-</span>
-</div>
+
 
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
