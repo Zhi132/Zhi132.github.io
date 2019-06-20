@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="一、SQL基础1、SQL分类 DDL：数据定义语句  创建数据库  123456create database test1## 数据库中已有的1.	information_schema:存储系统中的一些数据库对象信息2.	cluster:存储了系统的集群信息3.	mysql:	存储了系统的用户权限信息。4.	test:	系统自动创建的测试数据库。  删除数据库 1drop database tes">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入浅出-MySQL">
 <meta property="og:url" content="http://yoursite.com/2019/06/20/深入浅出-MySQL/index.html">
 <meta property="og:site_name" content="小白">
-<meta property="og:description" content="一、SQL基础1、SQL分类 DDL：数据定义语句  创建数据库  123456create database test1## 数据库中已有的1.	information_schema:存储系统中的一些数据库对象信息2.	cluster:存储了系统的集群信息3.	mysql:	存储了系统的用户权限信息。4.	test:	系统自动创建的测试数据库。  删除数据库 1drop database tes">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-20T01:55:31.480Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/20/深入浅出-MySQL/mysql.jpg">
+<meta property="og:updated_time" content="2019-06-20T03:01:36.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入浅出-MySQL">
-<meta name="twitter:description" content="一、SQL基础1、SQL分类 DDL：数据定义语句  创建数据库  123456create database test1## 数据库中已有的1.	information_schema:存储系统中的一些数据库对象信息2.	cluster:存储了系统的集群信息3.	mysql:	存储了系统的用户权限信息。4.	test:	系统自动创建的测试数据库。  删除数据库 1drop database tes">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/20/深入浅出-MySQL/mysql.jpg">
 
 
 
@@ -354,7 +353,10 @@
       
 
       
-        <h2 id="一、SQL基础"><a href="#一、SQL基础" class="headerlink" title="一、SQL基础"></a>一、SQL基础</h2><h4 id="1、SQL分类"><a href="#1、SQL分类" class="headerlink" title="1、SQL分类"></a>1、SQL分类</h4><ol>
+        <p><img src="/2019/06/20/深入浅出-MySQL/mysql.jpg" alt></p>
+<a id="more"></a>
+
+<h2 id="一、SQL基础"><a href="#一、SQL基础" class="headerlink" title="一、SQL基础"></a>一、SQL基础</h2><h4 id="1、SQL分类"><a href="#1、SQL分类" class="headerlink" title="1、SQL分类"></a>1、SQL分类</h4><ol>
 <li><p>DDL：数据定义语句</p>
 <ul>
 <li><p>创建数据库 </p>
@@ -398,8 +400,86 @@
 </li>
 </ol>
 <ol start="3">
-<li>DCL：数据控制语句</li>
+<li>DCL：数据控制语句—–管理系统中的对象权限时使用</li>
 </ol>
+<h4 id="2、MySQL数据类型"><a href="#2、MySQL数据类型" class="headerlink" title="2、MySQL数据类型"></a>2、MySQL数据类型</h4><table>
+<thead>
+<tr>
+<th>整数类型</th>
+<th>字节</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TINYINT</td>
+<td>1</td>
+<td>有符号-128<br>无符号 0</td>
+<td>有符号 127<br>无符号 255</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2</td>
+<td>有符号-32768<br>无符号 0</td>
+<td>有符号32767<br>无符号 65535</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3</td>
+<td>有符号-8388608<br>无符号 0</td>
+<td>有符号8388607<br>无符号 1677215</td>
+</tr>
+<tr>
+<td>INT,INTEGER</td>
+<td>4</td>
+<td>有符号-2147483648<br>无符号 0</td>
+<td>有符号2147483647<br>无符号 4294967295</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8</td>
+<td>有符号-9223372036854775808<br>无符号 0</td>
+<td>有符号9223372036854775807<br>无符号 18446744073709551615</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>浮点数类型</th>
+<th>字节</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FLOAT</td>
+<td>4</td>
+<td>±1.175494351E-38</td>
+<td>±3.402823466E+38</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>8</td>
+<td>±2.2250738585072014E-308</td>
+<td>±1.7976931348623157E+308</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>位类型</th>
+<th>字节</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BIT</td>
+<td>1~8</td>
+<td>BIT(1)</td>
+<td>BIT(64)</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -596,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、SQL基础"><span class="nav-number">1.</span> <span class="nav-text">一、SQL基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、SQL分类"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、SQL分类</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、SQL基础"><span class="nav-number">1.</span> <span class="nav-text">一、SQL基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、SQL分类"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、SQL分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、MySQL数据类型"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、MySQL数据类型</span></a></li></ol></li></ol></div>
             
 
           </div>
