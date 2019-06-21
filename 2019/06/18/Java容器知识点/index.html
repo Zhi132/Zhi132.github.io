@@ -709,7 +709,7 @@ LinkedList 在任意位置添加删除元素更快。</code></pre><h5 id="7-Link
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -731,7 +731,7 @@ LinkedList 在任意位置添加删除元素更快。</code></pre><h5 id="7-Link
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -780,7 +780,7 @@ LinkedList 在任意位置添加删除元素更快。</code></pre><h5 id="7-Link
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态初始化（饿汉式）"><span class="nav-number">1.1.</span> <span class="nav-text">静态初始化（饿汉式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双重检查（懒汉式）"><span class="nav-number">1.2.</span> <span class="nav-text">双重检查（懒汉式）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#要考虑多个线程的并发问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">要考虑多个线程的并发问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例注册表"><span class="nav-number">1.3.</span> <span class="nav-text">单例注册表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用设计模式与应用场景"><span class="nav-number">2.</span> <span class="nav-text">常用设计模式与应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java语言特性"><span class="nav-number">3.</span> <span class="nav-text">Java语言特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#知识详解"><span class="nav-number">3.1.</span> <span class="nav-text">知识详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当我们调用-get-方法，HashMap-会使用键对象的-hashcode-找到-bucket-位置，找到-bucket-位置之后，会调用-keys-equals-方法去找到链表中正确的节点，最终找到要找的值对象。"><span class="nav-number">4.</span> <span class="nav-text">- 当我们调用 get() 方法，HashMap 会使用键对象的 hashcode 找到 bucket 位置，找到 bucket 位置之后，会调用 keys.equals() 方法去找到链表中正确的节点，最终找到要找的值对象。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#当冲突发生时，使用某种探查技术在散列表中形成一个探查（测）序列。沿此序列逐个单元地查找，直到找到给定的地址。按照形成探查序列的方法不同，可将开放定址法区分为线性探查法、二次探查法、双重散列法等。"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">当冲突发生时，使用某种探查技术在散列表中形成一个探查（测）序列。沿此序列逐个单元地查找，直到找到给定的地址。按照形成探查序列的方法不同，可将开放定址法区分为线性探查法、二次探查法、双重散列法等。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-默认的负载因子大小为0-75。也就是说，当一个-Map-填满了75-的-bucket-时候，和其它集合类一样（如-ArrayList-等），将会创建原来-HashMap-大小的两倍的-bucket-数组来重新调整-Map-大小，并将原来的对象放入新的-bucket-数组中。这个过程叫作-rehashing。只有两个可能的位置-一个是原下标的位置，另一种是在下标为-lt-原下标-原容量-gt-的位置。"><span class="nav-number">4.0.1.</span> <span class="nav-text">HashMap 默认的负载因子大小为0.75。也就是说，当一个 Map 填满了75%的 bucket 时候，和其它集合类一样（如 ArrayList 等），将会创建原来 HashMap 大小的两倍的 bucket 数组来重新调整 Map 大小，并将原来的对象放入新的 bucket 数组中。这个过程叫作 rehashing。只有两个可能的位置:一个是原下标的位置，另一种是在下标为 &lt;原下标+原容量&gt; 的位置。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#HashMap-的容量是有限的。当经过多次元素插入，使得-HashMap-达到一定饱和度时，Key-映射位置发生冲突的几率会逐渐提高。这时候，-HashMap-需要扩展它的长度，也就是进行Resize。"><span class="nav-number">4.0.1.1.</span> <span class="nav-text">HashMap 的容量是有限的。当经过多次元素插入，使得 HashMap 达到一定饱和度时，Key 映射位置发生冲突的几率会逐渐提高。这时候， HashMap 需要扩展它的长度，也就是进行Resize。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#扩容：创建一个新的-Entry-空数组，长度是原数组的2倍rehash：遍历原-Entry-数组，把所有的-Entry-重新-Hash-详解"><span class="nav-number">4.0.1.2.</span> <span class="nav-text">扩容：创建一个新的 Entry 空数组，长度是原数组的2倍rehash：遍历原 Entry 数组，把所有的 Entry 重新 Hash 详解</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#容器的区别"><span class="nav-number">5.</span> <span class="nav-text">容器的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-ArrayList和Vector的区别"><span class="nav-number">5.0.1.</span> <span class="nav-text">5. ArrayList和Vector的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-ArrayList和LinkedList比较"><span class="nav-number">5.0.2.</span> <span class="nav-text">6.ArrayList和LinkedList比较</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-LinkedHashMap"><span class="nav-number">5.0.3.</span> <span class="nav-text">7.LinkedHashMap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-为什么要实现序列化"><span class="nav-number">5.0.4.</span> <span class="nav-text">8.为什么要实现序列化</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#单例模式"><span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态初始化（饿汉式）"><span class="nav-text">静态初始化（饿汉式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双重检查（懒汉式）"><span class="nav-text">双重检查（懒汉式）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#要考虑多个线程的并发问题"><span class="nav-text">要考虑多个线程的并发问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例注册表"><span class="nav-text">单例注册表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用设计模式与应用场景"><span class="nav-text">常用设计模式与应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java语言特性"><span class="nav-text">Java语言特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#知识详解"><span class="nav-text">知识详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当我们调用-get-方法，HashMap-会使用键对象的-hashcode-找到-bucket-位置，找到-bucket-位置之后，会调用-keys-equals-方法去找到链表中正确的节点，最终找到要找的值对象。"><span class="nav-text">- 当我们调用 get() 方法，HashMap 会使用键对象的 hashcode 找到 bucket 位置，找到 bucket 位置之后，会调用 keys.equals() 方法去找到链表中正确的节点，最终找到要找的值对象。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#当冲突发生时，使用某种探查技术在散列表中形成一个探查（测）序列。沿此序列逐个单元地查找，直到找到给定的地址。按照形成探查序列的方法不同，可将开放定址法区分为线性探查法、二次探查法、双重散列法等。"><span class="nav-text">当冲突发生时，使用某种探查技术在散列表中形成一个探查（测）序列。沿此序列逐个单元地查找，直到找到给定的地址。按照形成探查序列的方法不同，可将开放定址法区分为线性探查法、二次探查法、双重散列法等。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-默认的负载因子大小为0-75。也就是说，当一个-Map-填满了75-的-bucket-时候，和其它集合类一样（如-ArrayList-等），将会创建原来-HashMap-大小的两倍的-bucket-数组来重新调整-Map-大小，并将原来的对象放入新的-bucket-数组中。这个过程叫作-rehashing。只有两个可能的位置-一个是原下标的位置，另一种是在下标为-lt-原下标-原容量-gt-的位置。"><span class="nav-text">HashMap 默认的负载因子大小为0.75。也就是说，当一个 Map 填满了75%的 bucket 时候，和其它集合类一样（如 ArrayList 等），将会创建原来 HashMap 大小的两倍的 bucket 数组来重新调整 Map 大小，并将原来的对象放入新的 bucket 数组中。这个过程叫作 rehashing。只有两个可能的位置:一个是原下标的位置，另一种是在下标为 &lt;原下标+原容量&gt; 的位置。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#HashMap-的容量是有限的。当经过多次元素插入，使得-HashMap-达到一定饱和度时，Key-映射位置发生冲突的几率会逐渐提高。这时候，-HashMap-需要扩展它的长度，也就是进行Resize。"><span class="nav-text">HashMap 的容量是有限的。当经过多次元素插入，使得 HashMap 达到一定饱和度时，Key 映射位置发生冲突的几率会逐渐提高。这时候， HashMap 需要扩展它的长度，也就是进行Resize。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#扩容：创建一个新的-Entry-空数组，长度是原数组的2倍rehash：遍历原-Entry-数组，把所有的-Entry-重新-Hash-详解"><span class="nav-text">扩容：创建一个新的 Entry 空数组，长度是原数组的2倍rehash：遍历原 Entry 数组，把所有的 Entry 重新 Hash 详解</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#容器的区别"><span class="nav-text">容器的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-ArrayList和Vector的区别"><span class="nav-text">5. ArrayList和Vector的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-ArrayList和LinkedList比较"><span class="nav-text">6.ArrayList和LinkedList比较</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-LinkedHashMap"><span class="nav-text">7.LinkedHashMap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-为什么要实现序列化"><span class="nav-text">8.为什么要实现序列化</span></a></li></ol></li></div>
             
 
           </div>
@@ -810,18 +810,37 @@ LinkedList 在任意位置添加删除元素更快。</code></pre><h5 id="7-Link
   
 </div>
 
+<div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("04/17/2019 15:13:14");//修改为自己的blog建站时间
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="本站已安全运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="小白">
 <meta property="og:description" content="JavaSE面试要点以及知识概要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-21T02:12:07.509Z">
+<meta property="og:updated_time" content="2019-06-21T05:55:28.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaSE基础">
 <meta name="twitter:description" content="JavaSE面试要点以及知识概要">
@@ -424,13 +424,159 @@
 <li>派生类必须实现未实现的方法</li>
 </ul>
 <h5 id="10、-amp-和-amp-amp-的区别？"><a href="#10、-amp-和-amp-amp-的区别？" class="headerlink" title="10、&amp;和&amp;&amp;的区别？"></a>10、&amp;和&amp;&amp;的区别？</h5><ul>
-<li>&amp;运算符有两种用法：<ul>
-<li>按位与；</li>
-<li>逻辑与。</li>
-<li>&amp;&amp;运算符是短路与运算。逻辑与跟短路与的差别是非常巨大的，虽然二者都要求运算符左右两端的布尔值都是true整个表达式的值才是true。&amp;&amp;之所以称为短路运算是因为，如果&amp;&amp;左边的表达式的值是false，右边的表达式会被直接短路掉，不会进行运算。很多时候我们可能都需要用&amp;&amp;而不是&amp;，例如在验证用户登录时判定用户名不是null而且不是空字符串，应当写为：username != null &amp;&amp;!username.equals(“”)，二者的顺序不能交换，更不能用&amp;运算符，因为第一个条件如果不成立，根本不能进行字符串的equals比较，否则会产生NullPointerException异常。</li>
+<li>&amp;运算符有两种用法：<pre><code>-    按位与；
+   -    逻辑与。
+   -    &amp;&amp;运算符是短路与运算。逻辑与跟短路与的差别是非常巨大的，虽然二者都要求运算符左右两端的布尔值都是true整个表达式的值才是true。&amp;&amp;之所以称为短路运算是因为，如果&amp;&amp;左边的表达式的值是false，右边的表达式会被直接短路掉，不会进行运算。很多时候我们可能都需要用&amp;&amp;而不是&amp;，例如在验证用户登录时判定用户名不是null而且不是空字符串，应当写为：username != null &amp;&amp;!username.equals(&quot;&quot;)，二者的顺序不能交换，更不能用&amp;运算符，因为第一个条件如果不成立，根本不能进行字符串的equals比较，否则会产生NullPointerException异常。</code></pre></li>
 </ul>
-</li>
-</ul>
+<h5 id="11、关键字"><a href="#11、关键字" class="headerlink" title="11、关键字"></a>11、关键字</h5><h6 id="与流程控制相关的"><a href="#与流程控制相关的" class="headerlink" title="与流程控制相关的"></a>与流程控制相关的</h6><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>知识点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>if</td>
+<td>表示条件判断，一般用法if（关系表达式），后跟else或{……}</td>
+</tr>
+<tr>
+<td>esle</td>
+<td>条件转折，如if （关系表达式）{语句块1}else{语句块2}，如果关系表达式的值为true，则执行语句块1，否则执行语句块2.</td>
+</tr>
+<tr>
+<td>do……while……</td>
+<td>do和while一般一起使用，用于表示循环语句。do{……}while（关系表达式）……；当关系表达式的值为true是继续循环。</td>
+</tr>
+<tr>
+<td>for</td>
+<td>用于表示循环，for循环是最常使用的循环，格式for（表达式a; 表达式b; 表达式c）括号里面的书通常用于控制循环的次数，一般会用一个int类型的变量类计数，如（int i=0; i&lt;10; i++）表达式a用于流程控制的开始值，表达式b表示循环终止条件，表达式c用于计数。</td>
+</tr>
+<tr>
+<td>switch</td>
+<td>分支语句</td>
+</tr>
+<tr>
+<td>default</td>
+<td>条件不成立</td>
+</tr>
+<tr>
+<td>break</td>
+<td>跳出</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>跳出本次循环</td>
+</tr>
+<tr>
+<td>return</td>
+<td>返回值</td>
+</tr>
+<tr>
+<td>try……catch……finally……</td>
+<td>异常处理</td>
+</tr>
+</tbody></table>
+<h6 id="与修饰符有关的"><a href="#与修饰符有关的" class="headerlink" title="与修饰符有关的"></a>与修饰符有关的</h6><table>
+<thead>
+<tr>
+<th>范围</th>
+<th>本类</th>
+<th>同软件包</th>
+<th>不同包中子类</th>
+<th>不同包且无继承</th>
+<th>作用(含义)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public</td>
+<td>可以</td>
+<td>可以</td>
+<td>可以</td>
+<td>可以</td>
+<td>公有的</td>
+</tr>
+<tr>
+<td>protect</td>
+<td>可以</td>
+<td>可以</td>
+<td>可以</td>
+<td></td>
+<td>受保护的</td>
+</tr>
+<tr>
+<td>default(无权限修饰符)</td>
+<td>可以</td>
+<td>可以</td>
+<td></td>
+<td></td>
+<td>当前的</td>
+</tr>
+<tr>
+<td>private</td>
+<td>可以</td>
+<td></td>
+<td></td>
+<td></td>
+<td>私有的</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>知识点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>final</td>
+<td>1. final的变量的值不能被改变<br>              a.final的成员变量<br>              b.final的局部变量；<br>2. final的方法不能被重写；<br>3. final的类不能被继承。</td>
+</tr>
+<tr>
+<td>Synchronized</td>
+<td>当它用来修饰一个方法或者一个代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。JDK1.5以后引入了自旋锁、锁粗化、轻量级锁，偏向锁来有优化关键字的性能。</td>
+</tr>
+<tr>
+<td>Lock</td>
+<td><strong>synchronized在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象发生；而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally块中释放锁；<br><br>Lock可以让等待锁的线程响应中断，而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断；<br><br>通过Lock可以知道有没有成功获取锁，而synchronized却无法办到。</strong></td>
+</tr>
+</tbody></table>
+<h5 id="12、Java中的覆盖与重载的含义"><a href="#12、Java中的覆盖与重载的含义" class="headerlink" title="12、Java中的覆盖与重载的含义"></a>12、Java中的覆盖与重载的含义</h5><pre><code>1.    覆盖是发生在同一个类里边或者多个方法的方法名相同但参数不用的情况。
+ 2.    方法覆盖是说子类重新定义了父类的方法。方法覆盖必须有相同的方法名，参数列表和返回类型。覆盖者可能不会限制它所覆盖的方法的访问。</code></pre><h5 id="13、面向对象的”六原则一法则”。"><a href="#13、面向对象的”六原则一法则”。" class="headerlink" title="13、面向对象的”六原则一法则”。"></a>13、面向对象的”六原则一法则”。</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单一职责原则（高内聚）</td>
+<td>一个类只做它该做的事情</td>
+</tr>
+<tr>
+<td>开闭原则</td>
+<td>软件实体应当对扩展开放，对修改关闭。</td>
+</tr>
+<tr>
+<td>依赖倒转原则</td>
+<td>面向接口编程。</td>
+</tr>
+<tr>
+<td>里氏替换原则</td>
+<td>任何时候都可以用子类型替换掉父类型</td>
+</tr>
+<tr>
+<td>接口隔离性</td>
+<td>接口要小而专，绝不能大而全。</td>
+</tr>
+<tr>
+<td>合成聚合复用原则</td>
+<td>优先使用聚合或合成关系复用代码。</td>
+</tr>
+<tr>
+<td>迪米特法则（低耦合）</td>
+<td>迪米特法则又叫最少知识原则，一个对象应当对其他对象有尽可能少的了解。</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -560,7 +706,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -582,7 +728,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -631,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、面向对象的特征有哪些方面"><span class="nav-number">1.</span> <span class="nav-text">1、面向对象的特征有哪些方面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、基本数据类型"><span class="nav-number">2.</span> <span class="nav-text">2、基本数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、super和this的区别"><span class="nav-number">3.</span> <span class="nav-text">3、super和this的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、-和equals的区别"><span class="nav-number">4.</span> <span class="nav-text">4、==和equals的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、两个对象的hashcode相同，equals相同么"><span class="nav-number">5.</span> <span class="nav-text">5、两个对象的hashcode相同，equals相同么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、final在Java中的作用"><span class="nav-number">6.</span> <span class="nav-text">6、final在Java中的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、操作字符串的类"><span class="nav-number">7.</span> <span class="nav-text">7、操作字符串的类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、String-s-”i”-与-String-s1-new-String-“asd”-的区别"><span class="nav-number">8.</span> <span class="nav-text">8、String s=”i” 与 String s1=new String(“asd”)的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9、抽象类必须要有抽象方法么？"><span class="nav-number">9.</span> <span class="nav-text">9、抽象类必须要有抽象方法么？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#我们来具体分析一下抽象与接口"><span class="nav-number">9.1.</span> <span class="nav-text">我们来具体分析一下抽象与接口</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10、-amp-和-amp-amp-的区别？"><span class="nav-number">10.</span> <span class="nav-text">10、&amp;和&amp;&amp;的区别？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、面向对象的特征有哪些方面"><span class="nav-text">1、面向对象的特征有哪些方面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、基本数据类型"><span class="nav-text">2、基本数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、super和this的区别"><span class="nav-text">3、super和this的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、-和equals的区别"><span class="nav-text">4、==和equals的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、两个对象的hashcode相同，equals相同么"><span class="nav-text">5、两个对象的hashcode相同，equals相同么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、final在Java中的作用"><span class="nav-text">6、final在Java中的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、操作字符串的类"><span class="nav-text">7、操作字符串的类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8、String-s-”i”-与-String-s1-new-String-“asd”-的区别"><span class="nav-text">8、String s=”i” 与 String s1=new String(“asd”)的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9、抽象类必须要有抽象方法么？"><span class="nav-text">9、抽象类必须要有抽象方法么？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#我们来具体分析一下抽象与接口"><span class="nav-text">我们来具体分析一下抽象与接口</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10、-amp-和-amp-amp-的区别？"><span class="nav-text">10、&amp;和&amp;&amp;的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11、关键字"><span class="nav-text">11、关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#与流程控制相关的"><span class="nav-text">与流程控制相关的</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#与修饰符有关的"><span class="nav-text">与修饰符有关的</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12、Java中的覆盖与重载的含义"><span class="nav-text">12、Java中的覆盖与重载的含义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13、面向对象的”六原则一法则”。"><span class="nav-text">13、面向对象的”六原则一法则”。</span></a></li></ol></div>
             
 
           </div>
@@ -661,18 +807,37 @@
   
 </div>
 
+<div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("04/17/2019 15:13:14");//修改为自己的blog建站时间
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="本站已安全运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
