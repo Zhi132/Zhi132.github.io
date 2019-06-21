@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于本站]]></title>
+    <url>%2F2019%2F06%2F21%2Ftop%2F</url>
+    <content type="text"><![CDATA[​ 博主之前是在CSDN与博客园上写博客的。但是慢慢地CSDN上广告突出……博客园也很少用，就自己上网学习，搭hexo博客。 CSDN 博客园]]></content>
+      <tags>
+        <tag>Info</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[css3]]></title>
     <url>%2F2019%2F06%2F20%2Fcss3%2F</url>
     <content type="text"><![CDATA[二、选择器孟坤工具箱 层次选择器 后代选择器 123body p&#123; background:red;&#125; 子选择器 123body&gt;p&#123; background:pink;&#125; 相邻选择器 123.active+p&#123; backgroung:green;&#125; 通用兄弟选择器(同一层) 123.active~p&#123; background:yellow;&#125; 结构伪类选择器 选择第一个子元素 123ul li:first-child&#123; background:red;&#125; 选择最后一个子元素 123ul li:last-child&#123; background:green;&#125; 选择第n个子元素(父元素) 123p:nth-child(2)&#123; background:yellow;&#125; 选择第n个元素(同级) 123p:nth-of-type(2)&#123; background:blue;&#125; 属性选择器 E[attr]：选择匹配具有属性attr的E元素 a[id=first]：具有id属性且匹配first a[class=”links”]：class=links的会改变 a[class*=”links”]：class中包含links的会改变 a[href^=http]：以http开头元素 a[href$=png]：以png结尾的元素 三、CSS美化页面]]></content>
