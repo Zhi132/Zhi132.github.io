@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/06/19/Spring注解/Spring1.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/19/Spring注解/Spring2.png">
-<meta property="og:updated_time" content="2019-06-23T13:31:10.509Z">
+<meta property="og:updated_time" content="2019-06-24T08:36:14.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring注解">
 <meta name="twitter:description" content="核心容器">
@@ -364,71 +364,102 @@
       
 
       
-        <h1 id="核心容器"><a href="#核心容器" class="headerlink" title="核心容器"></a>核心容器</h1><a id="more"></a>
-
-<h2 id="Spring的核心jar包"><a href="#Spring的核心jar包" class="headerlink" title="Spring的核心jar包"></a>Spring的核心jar包</h2><p>​        一、spring-context—–maven注入</p>
-<pre><code>#####         没有注解之前，使用配置方式</code></pre><p>​                    <img src="/2019/06/19/Spring注解/Spring1.png" alt="Spring1">    </p>
-<h5 id="使用注解"><a href="#使用注解" class="headerlink" title="使用注解"></a>使用注解</h5><ul>
-<li><p>@Configuration  配置类</p>
+        <h1>核心容器</h1>
+<a id="more"></a>
+<h2 id="spring的核心jar包">Spring的核心jar包</h2>
+<p>​		一、spring-context-----maven注入</p>
+<h3 id="没有注解之前-使用配置方式">没有注解之前，使用配置方式</h3>
+<p>​					<img src="/2019/06/19/Spring注解/Spring1.png" alt="Spring1"></p>
+<h3 id="使用注解">使用注解</h3>
 <ul>
-<li><p>@Bean给容器一注册一个Bean；类型为方绘制的类型，id默认为id</p>
+<li>
+<h4 id="configuration-配置类">@Configuration  配置类</h4>
+<ul>
+<li>
+<p>@Bean给容器一注册一个Bean；类型为方绘制的类型，id默认为id</p>
 <ul>
 <li>可以给Bean添加value值</li>
 </ul>
 </li>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContextnew a = AnnotationConfigApplicationContext(配置类.class);</span><br><span class="line">Person p = a.getBean(Person.class);</span><br></pre></td></tr></table></figure>
-
+<li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContextnew a = AnnotationConfigApplicationContext(配置类.class);</span><br><span class="line">Person p = a.getBean(Person.class);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-</ul>
+<li>
+<h4 id="包扫描-context-componet-scan-class-context-componet-scan">包扫描&lt;context:componet-scan class=&quot;&quot;&gt;&lt;/context:componet-scan&gt;</h4>
 <ul>
-<li><p>包扫描&lt;context:componet-scan class=””&gt;</p>
-<ul>
-<li><p>只要标注了@Controller @Service @Repository @Component  自动扫描</p>
+<li>
+<h5 id="只要标注了-controller-service-repository-component-自动扫描">只要标注了@Controller @Service @Repository @Component  自动扫描</h5>
 <ul>
 <li>包扫描过滤 在其下边继续写&lt;context:include合作者exclude</li>
 </ul>
 </li>
-<li><p>另一种方法可以在配置类上边加注解 @ComponentScan(value=””)—-和上边包扫描效果一样会自动扫描</p>
+<li>
+<h5 id="另一种方法可以在配置类上边加注解-componentscan-value-和上边包扫描效果一样会自动扫描">另一种方法可以在配置类上边加注解 @ComponentScan(value=&quot;&quot;)----和上边包扫描效果一样会自动扫描</h5>
 <ul>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">指定要扫描的包</span><br><span class="line"><span class="meta">@ComponentScan</span>(value=<span class="string">""</span>,excludeFilters = &#123;</span><br><span class="line">		<span class="meta">@Filter</span>(type=FilterType.ANNOTATION,classes=							  				&#123;Controller.class,Service,<span class="class"><span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">		&#125;)</span></span><br><span class="line"><span class="class">如果要使用只扫描--我们需要把<span class="title">useDefaultFilters</span> </span>= <span class="keyword">false</span>  默认扫描关闭</span><br></pre></td></tr></table></figure>
+<li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">指定要扫描的包</span><br><span class="line"><span class="meta">@ComponentScan</span>(value=<span class="string">""</span>,excludeFilters = &#123;</span><br><span class="line">		<span class="meta">@Filter</span>(type=FilterType.ANNOTATION,classes=							  				&#123;Controller.class,Service,<span class="class"><span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">		&#125;)</span></span><br><span class="line"><span class="class">如果要使用只扫描--我们需要把<span class="title">useDefaultFilters</span> </span>= <span class="keyword">false</span>  默认扫描关闭</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在其中我们还可以使用ComponentScans来扫描多个  value是数组</p>
+<li>
+<p>在其中我们还可以使用ComponentScans来扫描多个  value是数组</p>
 </li>
-<li><p><img src="/2019/06/19/Spring注解/Spring2.png" alt></p>
+<li>
+<p><img src="/2019/06/19/Spring注解/Spring2.png" alt></p>
 </li>
-<li><p>常用规则（扫描方式）</p>
+<li>
+<p>常用规则（扫描方式）</p>
 <ul>
-<li><blockquote>
+<li>
+<blockquote>
 <p>FilterType.*</p>
-<p>1、<strong>ANNOTATION</strong>                  按照注解</p>
-<p>2、<strong>ASSIGNABLE_TYPE</strong>         按照给定的类型</p>
-<p>3、ASPECTJ                             ASPECTJ表达式</p>
-<p>4、REGEX                                正则表达式</p>
-<p>5、CUSTOM                            自定义规则</p>
+<p>1、<strong>ANNOTATION</strong>  				按照注解</p>
+<p>2、<strong>ASSIGNABLE_TYPE</strong> 		按照给定的类型</p>
+<p>3、ASPECTJ 							ASPECTJ表达式</p>
+<p>4、REGEX								正则表达式</p>
+<p>5、CUSTOM							自定义规则</p>
 <ul>
 <li>需要实现TypeFilter接口</li>
 </ul>
 </blockquote>
 </li>
-<li><p>修改Scope（调整组件作用域）</p>
+<li>
+<p>修改Scope（调整组件作用域）</p>
 <ul>
-<li>prototype    多实例的</li>
+<li>prototype	多实例的</li>
 <li>singletion     单实例的</li>
 </ul>
 </li>
-<li><p>懒加载@Lazy</p>
+<li>
+<p>懒加载@Lazy</p>
 <ul>
 <li>单实例Bean：默认在启动的时候创建对象</li>
-<li>第一次使用Bean的时候再创建对象—–懒加载</li>
+<li>第一次使用Bean的时候再创建对象-----懒加载</li>
 </ul>
 </li>
-<li><p>按照条件注册bean</p>
+<li>
+<p>按照条件注册bean</p>
 <ul>
-<li>@Conditional:    按照一定的条件进行判断，满足条件给容器中注册bean</li>
+<li>@Conditional:	按照一定的条件进行判断，满足条件给容器中注册bean</li>
 <li>@Conditional(Condition数组—》类.class)</li>
 <li>实现的类需要实现Conditional接口，来为后续的判断提供条件</li>
+</ul>
+</li>
+<li>
+<p>import[快速给容器导入组件]</p>
+<ul>
+<li>@Import(要导入到容器中的组件)；容器就会自动注册这个组件</li>
+<li>@ImportSelector：返回需要导入的组件的全类名的注解
+<ul>
+<li>实现的接口 里边写返回的类函数</li>
+</ul>
+</li>
+<li>@ImportBeanDefinitionRegistrar  手动注册bean到容器中</li>
+<li>使用Spring的FactoryBean方法（工厂Bean）
+<ul>
+<li>获得工厂bean的方法  在前边加引用</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -596,7 +627,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -607,7 +638,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -686,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#核心容器"><span class="nav-text">核心容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring的核心jar包"><span class="nav-text">Spring的核心jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用注解"><span class="nav-text">使用注解</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">核心容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring的核心jar包"><span class="nav-text">Spring的核心jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#没有注解之前-使用配置方式"><span class="nav-text">没有注解之前，使用配置方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用注解"><span class="nav-text">使用注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#configuration-配置类"><span class="nav-text">@Configuration  配置类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包扫描-context-componet-scan-class-context-componet-scan"><span class="nav-text">包扫描&lt;context:componet-scan class=&quot;&quot;&gt;&lt;/context:componet-scan&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#只要标注了-controller-service-repository-component-自动扫描"><span class="nav-text">只要标注了@Controller @Service @Repository @Component  自动扫描</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#另一种方法可以在配置类上边加注解-componentscan-value-和上边包扫描效果一样会自动扫描"><span class="nav-text">另一种方法可以在配置类上边加注解 @ComponentScan(value=&quot;&quot;)----和上边包扫描效果一样会自动扫描</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

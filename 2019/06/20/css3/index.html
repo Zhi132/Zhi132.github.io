@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="css,">
+  <meta name="keywords" content="前端,">
 
 
 
@@ -82,7 +82,7 @@
 
 
 <meta name="description" content="CSS">
-<meta name="keywords" content="css">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css3">
 <meta property="og:url" content="http://yoursite.com/2019/06/20/css3/index.html">
@@ -90,7 +90,7 @@
 <meta property="og:description" content="CSS">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/06/20/css3/box.jpg">
-<meta property="og:updated_time" content="2019-06-24T03:57:36.813Z">
+<meta property="og:updated_time" content="2019-06-24T08:35:54.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3">
 <meta name="twitter:description" content="CSS">
@@ -363,88 +363,105 @@
       
 
       
-        <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><a id="more"></a>
-
-<h5 id="二、选择器"><a href="#二、选择器" class="headerlink" title="二、选择器"></a>二、选择器</h5><p><a href="http://tool.mkblog.cn/codeonline/" target="_blank" rel="noopener">孟坤工具箱</a></p>
-<h6 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a>层次选择器</h6><ul>
-<li><p>后代选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
+        <h1>CSS</h1>
+<a id="more"></a>
+<h5 id="二-选择器">二、选择器</h5>
+<p><a href="http://tool.mkblog.cn/codeonline/" target="_blank" rel="noopener">孟坤工具箱</a></p>
+<h6 id="层次选择器">层次选择器</h6>
 <ul>
-<li><p>子选择器</p>
+<li>
+<p>后代选择器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>子选择器</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&gt;<span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>相邻选择器</p>
+<li>
+<p>相邻选择器</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.active</span>+<span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">backgroung</span>:green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>通用兄弟选择器(同一层)</p>
+<li>
+<p>通用兄弟选择器(同一层)</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.active</span>~<span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
-<h6 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h6><ul>
-<li><p>选择第一个子元素</p>
+<h6 id="结构伪类选择器">结构伪类选择器</h6>
+<ul>
+<li>
+<p>选择第一个子元素</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+</li>
+<li>
+<p>选择最后一个子元素</p>
 </li>
 </ul>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>选择最后一个子元素</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>选择第n个子元素(父元素)</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-child(2)</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>选择第n个元素(同级)</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type(2)</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>选择第n个子元素(父元素)</li>
 </ul>
-<h6 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h6><ul>
-<li>E[attr]：选择匹配具有属性attr的E元素</li>
-</ul>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-child(2)</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>a[id=first]：具有id属性且匹配first</p>
+<li>选择第n个元素(同级)</li>
+</ul>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type(2)</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="属性选择器">属性选择器</h6>
+<ul>
+<li>
+<p>E[attr]：选择匹配具有属性attr的E元素</p>
 </li>
-<li><p>a[class=”links”]：class=links的会改变</p>
+<li>
+<p>a[id=first]：具有id属性且匹配first</p>
 </li>
-<li><p>a[class*=”links”]：class中包含links的会改变</p>
+<li>
+<p>a[class=“links”]：class=links的会改变</p>
 </li>
-<li><p>a[href^=http]：以http开头元素</p>
+<li>
+<p>a[class*=“links”]：class中包含links的会改变</p>
 </li>
-<li><p>a[href$=png]：以png结尾的元素</p>
+<li>
+<p>a[href^=http]：以http开头元素</p>
+</li>
+<li>
+<p>a[href$=png]：以png结尾的元素</p>
+</li>
+</ul>
 <hr>
-</li>
-</ul>
-<h5 id="三、CSS美化页面"><a href="#三、CSS美化页面" class="headerlink" title="三、CSS美化页面"></a>三、CSS美化页面</h5><ul>
-<li><p>font属性</p>
-<pre><code>-    字体属性的顺序：字体风格→字体粗细→字体大小→字体类型</code></pre></li>
-</ul>
+<h5 id="三-css美化页面">三、CSS美化页面</h5>
 <ul>
-<li><p>垂直居中</p>
+<li>
+<p>font属性</p>
 <ul>
-<li>vertical-align：middle、top、bottom</li>
+<li>字体属性的顺序：字体风格→字体粗细→字体大小→字体类型</li>
 </ul>
 </li>
-<li><p>文本阴影</p>
-<ul>
-<li>text-shadow : color  x-offset  y-offset  blur-radius;</li>
-</ul>
+<li>
+<p>垂直居中</p>
 </li>
-<li><p>背景图片大小 background-size</p>
+<li>
+<p>vertical-align：middle、top、bottom</p>
+</li>
+<li>
+<p>文本阴影</p>
+</li>
+<li>
+<p>text-shadow : color  x-offset  y-offset  blur-radius;</p>
+</li>
+<li>
+<p>背景图片大小 background-size</p>
 </li>
 </ul>
 <ul>
-<li><table>
+<li>
+<table>
 <thead>
 <tr>
 <th><strong>属性值</strong></th>
 <th><strong>描述</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>auto</td>
 <td>默认值，使用背景图片保持原样</td>
 </tr>
@@ -460,35 +477,44 @@
 <td>contain</td>
 <td>让背景图片保持本身的宽高比例，将背景图片缩放到宽度或者高度正好适应所定义背景的区域</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</li>
+<li>
+<p>背景线性渐变</p>
+</li>
+<li>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span>: <span class="selector-tag">-webkit-linear-gradient</span>(<span class="selector-tag">red</span>,<span class="selector-tag">yellow</span>,<span class="selector-tag">blue</span>); <span class="comment">/* Safari 5.1-6.0 */</span></span><br><span class="line"> <span class="selector-tag">background</span>: <span class="selector-tag">-o-linear-gradient</span>(<span class="selector-tag">red</span>,<span class="selector-tag">yellow</span>,<span class="selector-tag">blue</span>); <span class="comment">/* Opera 11.1-12.0 */</span> </span><br><span class="line"> <span class="selector-tag">background</span>: <span class="selector-tag">-moz-linear-gradient</span>(<span class="selector-tag">red</span>,<span class="selector-tag">yellow</span>,<span class="selector-tag">blue</span>); <span class="comment">/* Firefox 3.6-15 */</span></span><br><span class="line"> <span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-tag">red</span>,<span class="selector-tag">yellow</span>,<span class="selector-tag">blue</span>); <span class="comment">/* 标准语法 */</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>盒子模型</p>
+</li>
+<li>
+<p>要把容器想象成为一个盒子</p>
+</li>
+<li>
+<p>理解外边距，内边距，边框的含义。</p>
+</li>
+<li>
+<p><img src="/2019/06/20/css3/box.jpg" alt></p>
+</li>
+<li>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">box-sizing：content-box  |  border-box  |  inherit;</span><br><span class="line"></span><br><span class="line">1.	默认值，盒子的总尺度</span><br><span class="line">2.	盒子的宽度或高度等于元素内容的宽度或高度</span><br><span class="line">3.	元素继承父元素的盒子模型模式</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>盒子阴影</p>
+<ul>
+<li>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-shadow</span><span class="selector-pseudo">:inset</span>  <span class="selector-tag">x-offset</span>  <span class="selector-tag">y-offset</span>  <span class="selector-tag">blur-radius</span>  <span class="selector-tag">color</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ul>
-<li><p>背景线性渐变</p>
-<ul>
-<li><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span>: <span class="selector-tag">-webkit-linear-gradient</span>(<span class="selector-tag">red</span>,<span class="selector-tag">yellow</span>,<span class="selector-tag">blue</span>); <span class="comment">/* Safari 5.1-6.0 */</span></span><br><span class="line"> <span class="selector-tag">background</span>: <span class="selector-tag">-o-linear-gradient</span>(<span class="selector-tag">red</span>,<span class="selector-tag">yellow</span>,<span class="selector-tag">blue</span>); <span class="comment">/* Opera 11.1-12.0 */</span> </span><br><span class="line"> <span class="selector-tag">background</span>: <span class="selector-tag">-moz-linear-gradient</span>(<span class="selector-tag">red</span>,<span class="selector-tag">yellow</span>,<span class="selector-tag">blue</span>); <span class="comment">/* Firefox 3.6-15 */</span></span><br><span class="line"> <span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-tag">red</span>,<span class="selector-tag">yellow</span>,<span class="selector-tag">blue</span>); <span class="comment">/* 标准语法 */</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+<li>
+<p>浮动</p>
 </li>
-<li><p>盒子模型</p>
-<ul>
-<li><p>要把容器想象成为一个盒子</p>
+<li>
+<p>overflow（父类使用）</p>
 </li>
-<li><p>理解外边距，内边距，边框的含义。</p>
-</li>
-<li><p><img src="/2019/06/20/css3/box.jpg" alt></p>
-</li>
-<li><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">box-sizing：content-box  |  border-box  |  inherit;</span><br><span class="line"></span><br><span class="line">1.	默认值，盒子的总尺度</span><br><span class="line">2.	盒子的宽度或高度等于元素内容的宽度或高度</span><br><span class="line">3.	元素继承父元素的盒子模型模式</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>盒子阴影</p>
-</li>
-<li><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-shadow</span><span class="selector-pseudo">:inset</span>  <span class="selector-tag">x-offset</span>  <span class="selector-tag">y-offset</span>  <span class="selector-tag">blur-radius</span>  <span class="selector-tag">color</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>浮动</p>
-<ul>
-<li>overflow（父类使用）</li>
 </ul>
 <table>
 <thead>
@@ -497,7 +523,8 @@
 <th><strong>说明</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong>visible</strong></td>
 <td><strong>默认值。内容不会被修剪，会呈现在盒子之外</strong></td>
 </tr>
@@ -513,56 +540,67 @@
 <td><strong>auto</strong></td>
 <td><strong>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容</strong></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
-<li><p>父级添加伪类after</p>
-</li>
-<li><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clear</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;          <span class="comment">/*在clear类后面添加内容为空*/</span></span><br><span class="line">    <span class="attribute">display</span>: block;      <span class="comment">/*把添加的内容转化为块元素*/</span></span><br><span class="line">    <span class="attribute">clear</span>: both;         <span class="comment">/*清除这个元素两边的浮动*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>
+<p>父级添加伪类after</p>
+<ul>
+<li>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clear</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;          <span class="comment">/*在clear类后面添加内容为空*/</span></span><br><span class="line">    <span class="attribute">display</span>: block;      <span class="comment">/*把添加的内容转化为块元素*/</span></span><br><span class="line">    <span class="attribute">clear</span>: both;         <span class="comment">/*清除这个元素两边的浮动*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>定位网页元素</p>
+<li>
+<p>定位网页元素</p>
+</li>
+<li>
+<p>static—没有定位，以标准流方式显示</p>
+</li>
+<li>
+<p>relativ—相对自身原来位置进行偏移</p>
 <ul>
-<li>static—没有定位，以标准流方式显示</li>
-<li>relativ—相对自身原来位置进行偏移</li>
 <li>偏移设置：top、left、right、bottom</li>
-<li>absolute—相对于父类</li>
-<li>偏移设置： left、right、top、bottom </li>
-<li>fixed—固定位置</li>
 </ul>
 </li>
-<li><p>CSS变形</p>
+<li>
+<p>absolute—相对于父类</p>
 <ul>
-<li><p>transform:[transform-function] *;</p>
-</li>
-<li><p>translate()：平移函数，基于X、Y坐标重新定位元素的位置</p>
-</li>
-<li><p>scale()：缩放函数，可以使任意元素对象尺寸发生变化</p>
-</li>
-<li><p>rotate()：旋转函数，取值是一个度数值</p>
-</li>
-<li><p>skew()：倾斜函数，取值是一个度数值</p>
-</li>
-<li><p>过渡</p>
-</li>
-<li><p>transition:[transition-property  transition-duration  transition-timing-function   transition-delay ] </p>
-<ul>
-<li>过渡动画函数</li>
+<li>偏移设置： left、right、top、bottom</li>
 </ul>
+</li>
+<li>
+<p>fixed—固定位置</p>
+</li>
+<li>
+<p>CSS变形</p>
+</li>
+<li>
+<p>transform:[transform-function] *;</p>
+<ul>
+<li>translate()：平移函数，基于X、Y坐标重新定位元素的位置</li>
+<li>scale()：缩放函数，可以使任意元素对象尺寸发生变化</li>
+<li>rotate()：旋转函数，取值是一个度数值</li>
+<li>skew()：倾斜函数，取值是一个度数值</li>
+</ul>
+</li>
+<li>
+<p>过渡</p>
+<ul>
+<li>
+<p>transition:[transition-property  transition-duration  transition-timing-function   transition-delay ]</p>
+</li>
+<li>
+<p>过渡动画函数</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ease：速度由快到慢（默认值）</span><br><span class="line">linear：速度恒速（匀速运动）</span><br><span class="line">ease-in：速度越来越快（渐显效果）</span><br><span class="line">ease-out：速度越来越慢（渐隐效果）</span><br><span class="line">ease-in-out：速度先加速再减速（渐显渐隐效果）</span><br></pre></td></tr></table></figure>
-
-
 </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><p>动画</p>
+<li>
+<p>动画</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@keyframes spread &#123;</span><br><span class="line">   0% &#123;width:0;&#125;</span><br><span class="line">   33% &#123;width:23px;&#125;</span><br><span class="line">   66% &#123;width:46px;&#125;</span><br><span class="line">   100% &#123;width:69px;&#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> ## 使用</span><br><span class="line"> animation:animation-name  animation–duration  animation-timing-function</span><br><span class="line">   animation-delay  animation-iteration-count  animation-direction  </span><br><span class="line">animation-play-state  animation-fill-mode;</span><br><span class="line"></span><br><span class="line">动画的播放次数（animation-iteration-count）</span><br><span class="line">    值通常为整数，默认值为1</span><br><span class="line">    特殊值infinite，表示动画无限次播放</span><br><span class="line">动画的播放方向（animation-direction）</span><br><span class="line">    normal，动画每次都是循环向前播放</span><br><span class="line">    alternate，动画播放为偶数次则向前播放</span><br><span class="line">动画的播放状态（animation-play-state）</span><br><span class="line">    running将暂停的动画重新播放</span><br><span class="line">    paused将正在播放的元素动画停下来</span><br><span class="line">动画发生的操作（animation-fill-mode）</span><br><span class="line">    forwards表示动画在结束后继续应用最后关键帧的位置</span><br><span class="line">    backwards表示会在向元素应用动画样式时迅速应用动画的初始帧</span><br><span class="line">    both表示元素动画同时具有forwards和backwards的效果</span><br></pre></td></tr></table></figure>
-
-
-
-
 </li>
 </ul>
 
@@ -619,7 +657,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
           
         </div>
       
@@ -723,7 +761,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -734,7 +772,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -813,7 +851,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二、选择器"><span class="nav-text">二、选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#层次选择器"><span class="nav-text">层次选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#结构伪类选择器"><span class="nav-text">结构伪类选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#属性选择器"><span class="nav-text">属性选择器</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、CSS美化页面"><span class="nav-text">三、CSS美化页面</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二-选择器"><span class="nav-text">二、选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#层次选择器"><span class="nav-text">层次选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#结构伪类选择器"><span class="nav-text">结构伪类选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#属性选择器"><span class="nav-text">属性选择器</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三-css美化页面"><span class="nav-text">三、CSS美化页面</span></a></li></ol></li></ol></div>
             
 
           </div>
