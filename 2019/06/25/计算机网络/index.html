@@ -91,7 +91,9 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/06/25/计算机网络/jg.png">
 <meta property="og:image" content="http://pic.rmb.bdstatic.com/b2c69809e73399318b038fb81fb1ff67.png@wm_2,t_55m+5a625Y+3L+W3puaCoA==,fc_ffffff,ff_U2ltSGVp,sz_33,x_21,y_21">
-<meta property="og:updated_time" content="2019-06-25T10:13:21.838Z">
+<meta property="og:image" content="http://pic.rmb.bdstatic.com/845813c61190858b218abd19b9e15948.jpeg@wm_2,t_55m+5a625Y+3L+W3puaCoA==,fc_ffffff,ff_U2ltSGVp,sz_25,x_16,y_16">
+<meta property="og:image" content="http://album.sina.com.cn/pic/0077QrK8zy7me4J7Crsd6">
+<meta property="og:updated_time" content="2019-06-25T11:58:47.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络">
 <meta name="twitter:description" content="👉💭计算机网络">
@@ -366,6 +368,9 @@
       
         <p><font style="font-weight:bold;font-size:25px">👉💭计算机网络</font></p>
 <a id="more"></a>
+<p><strong>参考链接</strong></p>
+<p><a href="https://baijiahao.baidu.com/s?id=1620169126251822734&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">计算机网络基础知识</a></p>
+<p><a href="https://blog.csdn.net/weixin_41910694/article/details/91960815#jump1" target="_blank" rel="noopener">计算机网络</a></p>
 <h3 id="1-计算机网络体系结构">1、计算机网络体系结构</h3>
 <p><img src="/2019/06/25/计算机网络/jg.png" alt></p>
 <table>
@@ -602,6 +607,48 @@
 <p>第一次握手A发送SYN传输失败，A,B都不会申请资源，连接失败。如果一段时间内发出多个SYN连接请求，那么A只会接受它最后发送的那个SYN的SYN+ACK回应，忽略其他回应全部回应，B中多申请的资源也会释放</p>
 <p>第二次握手B发送SYN+ACK传输失败，A不会申请资源，B申请了资源，但收不到A的ACK，过一段时间释放资源。如果是收到了多个A的SYN请求，B都会回复SYN+ACK，但A只会承认其中它最早发送的那个SYN的回应，并回复最后一次握手的ACK</p>
 <p>第三次握手ACK传输失败，B没有收到ACK，释放资源，对于后序的A的传输数据返回RST。实际上B会因为没有收到A的ACK会多次发送SYN+ACK，次数是可以设置的，如果最后还是没有收到A的ACK，则释放资源，对A的数据传输返回RST</p>
+</blockquote>
+<h4 id="5-3四次挥手👉断开连接">5.3四次挥手👉断开连接</h4>
+<blockquote>
+<p>​	四次挥手（Four-Way Wavehand）即终止TCP连接，就是指断开一个TCP连接时，需要客户端和服务端总共发送4个包以确认连接的断开。在socket编程中，这一过程由客户端或服务端任一方执行close来触发，整个流程如下图所示：</p>
+</blockquote>
+<p><img src="http://pic.rmb.bdstatic.com/845813c61190858b218abd19b9e15948.jpeg@wm_2,t_55m+5a625Y+3L+W3puaCoA==,fc_ffffff,ff_U2ltSGVp,sz_25,x_16,y_16" alt></p>
+<h5 id="5-3-1详细解释">5.3.1详细解释</h5>
+<p>第一步：A发送释放报文，FIN为1。</p>
+<p>第二步：B结束之后发出确认，此时TCP属于半关闭状态，B能向A发送数据但是A不能向B发送数据。</p>
+<p>第三步：当B不再需要连接时，发送连接释放报文，FIN=1.</p>
+<p>第四步：A收到后发送确认，进入TIME-WAIT状态，等待2MSL后释放连接。B收到A的确认后释放连接。</p>
+<h5 id="5-3-2为什么要进行四次挥手-为什么是四次而不是三次呢？">5.3.2为什么要进行四次挥手，为什么是四次而不是三次呢？</h5>
+<p>为了断开TCP连接</p>
+<pre><code>&gt;	前两次挥手：结束一个方向的连接
+&gt;
+&gt;	后两次挥手：结束另一个方向的连接
+</code></pre>
+<p><strong>下边引入一张图片来深入理解一下</strong></p>
+<p><img src="http://album.sina.com.cn/pic/0077QrK8zy7me4J7Crsd6" alt></p>
+<h5 id="5-3-3为什么有time-wait？">5.3.3为什么有TIME_WAIT？</h5>
+<p>客户端在接受服务器的FIN之后，并不是直接进入CLOSED状态，而是需要等待2MS，有以下两个原因</p>
+<blockquote>
+<p>​	1、为了确保最后一个确认报文能够送达</p>
+<p>​	2、等待一段时间是为了让本连接持续时间内所产生的所有报文都从网络中消失，使得下一个新的连接不会出现旧的连接请求报文。</p>
+</blockquote>
+<h4 id="5-4tcp可靠传输">5.4TCP可靠传输</h4>
+<p>​		<strong>TCP 使用超时重传来实现可靠传输：如果一个已经发送的报文段在超时时间内没有收到确认，那么就重传这个报文段。</strong></p>
+<h4 id="5-5tcp滑动窗口">5.5TCP滑动窗口</h4>
+<h5 id="5-5-1作用">5.5.1作用</h5>
+<p>​				1、提供TCP的可靠性</p>
+<p>​				2、提供TCP的流控特性</p>
+<h5 id="5-5-2tcp窗口机制">5.5.2TCP窗口机制</h5>
+<blockquote>
+<p>TCP的窗口机制有两种，一种是固定窗口大小，另一种是滑动窗口。数据在传输时,TCP会对所有数据进行编号，发送方在发送过程中始终保持着一个窗口，只有落在发送窗口内的数据帧才允许被发送；同时接受方也始终保持着一个接收窗口，只有落在窗口内的数据才会被接收。这样通过改变发送窗口和接收窗口的大小就可以实现流量控制。</p>
+</blockquote>
+<h5 id="5-5-3tcp窗口大小">5.5.3TCP窗口大小</h5>
+<blockquote>
+<p>当窗口过大时，会导致不必要的数据来拥塞我们的链路，但是窗口太小时，会造成很大的延时，比如为1时，发送方没发送一个数据，接受方就会返回一个ack报文，在发送方未接收到接受方的确认报文ack之前不会进行下一次发送。<strong>当链路变好了或者变差了这个窗口还会发生变化，并不是第一次协商好了以后就永远不变了。</strong></p>
+</blockquote>
+<h5 id="5-5-4窗口滑动协议">5.5.4窗口滑动协议</h5>
+<blockquote>
+<p>是TCP使用的一种流量控制方法。该协议允许发送方在停止并等待接收确认报文前可以连续发送多个分组。由于发送方不必每发一个分组就停下来等待确认，因此该协议可以加速数据的传输。 只有在接收窗口向前滑动时（与此同时也发送了确认），发送窗口才有可能向前滑动。收发两端的窗口按照以上规律不断地向前滑动，因此这种协议又称为滑动窗口协议。</p>
 </blockquote>
 
       
@@ -847,7 +894,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-计算机网络体系结构"><span class="nav-text">1、计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传输层的两种协议"><span class="nav-text">传输层的两种协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tcp-ip"><span class="nav-text">TCP/IP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-物理层"><span class="nav-text">2、物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1通信方式"><span class="nav-text">2.1通信方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数据链路层"><span class="nav-text">3、数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1基本问题"><span class="nav-text">3.1基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-封装成帧"><span class="nav-text">1、封装成帧</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-透明传输"><span class="nav-text">2、透明传输</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-差错检验"><span class="nav-text">3、差错检验</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2信道分类"><span class="nav-text">3.2信道分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-广播信道"><span class="nav-text">1、 广播信道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-点对点信道"><span class="nav-text">2、点对点信道</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3信道复用技术"><span class="nav-text">3.3信道复用技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-频分复用"><span class="nav-text">1、频分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-时分复用"><span class="nav-text">2、时分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-统计时分复用"><span class="nav-text">3、统计时分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-波分复用"><span class="nav-text">4、波分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-码分复用"><span class="nav-text">5、码分复用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-csma-cd-协议"><span class="nav-text">3.4 CSMA/CD 协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-ppp协议"><span class="nav-text">3.5 PPP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-mac地址"><span class="nav-text">3.6 MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7局域网"><span class="nav-text">3.7局域网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8以太网"><span class="nav-text">3.8以太网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-9交换机"><span class="nav-text">3.9交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-10虚拟局域网"><span class="nav-text">3.10虚拟局域网</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-网络层"><span class="nav-text">4、网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1概念"><span class="nav-text">4.1概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-1-ip分类的历史"><span class="nav-text">4.1.1 IP分类的历史</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-传输层"><span class="nav-text">5、传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1tcp与udp的区别"><span class="nav-text">5.1TCP与UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2三次握手👉建立tcp连接"><span class="nav-text">5.2三次握手👉建立TCP连接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-1详细解释"><span class="nav-text">5.2.1详细解释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-2为什么要进行三次握手"><span class="nav-text">5.2.2为什么要进行三次握手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-3为什么不进行一次握手或者两次握手"><span class="nav-text">5.2.3为什么不进行一次握手或者两次握手</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-计算机网络体系结构"><span class="nav-text">1、计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传输层的两种协议"><span class="nav-text">传输层的两种协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tcp-ip"><span class="nav-text">TCP/IP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-物理层"><span class="nav-text">2、物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1通信方式"><span class="nav-text">2.1通信方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数据链路层"><span class="nav-text">3、数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1基本问题"><span class="nav-text">3.1基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-封装成帧"><span class="nav-text">1、封装成帧</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-透明传输"><span class="nav-text">2、透明传输</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-差错检验"><span class="nav-text">3、差错检验</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2信道分类"><span class="nav-text">3.2信道分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-广播信道"><span class="nav-text">1、 广播信道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-点对点信道"><span class="nav-text">2、点对点信道</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3信道复用技术"><span class="nav-text">3.3信道复用技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-频分复用"><span class="nav-text">1、频分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-时分复用"><span class="nav-text">2、时分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-统计时分复用"><span class="nav-text">3、统计时分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-波分复用"><span class="nav-text">4、波分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-码分复用"><span class="nav-text">5、码分复用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-csma-cd-协议"><span class="nav-text">3.4 CSMA/CD 协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-ppp协议"><span class="nav-text">3.5 PPP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-mac地址"><span class="nav-text">3.6 MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7局域网"><span class="nav-text">3.7局域网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8以太网"><span class="nav-text">3.8以太网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-9交换机"><span class="nav-text">3.9交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-10虚拟局域网"><span class="nav-text">3.10虚拟局域网</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-网络层"><span class="nav-text">4、网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1概念"><span class="nav-text">4.1概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-1-ip分类的历史"><span class="nav-text">4.1.1 IP分类的历史</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-传输层"><span class="nav-text">5、传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1tcp与udp的区别"><span class="nav-text">5.1TCP与UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2三次握手👉建立tcp连接"><span class="nav-text">5.2三次握手👉建立TCP连接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-1详细解释"><span class="nav-text">5.2.1详细解释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-2为什么要进行三次握手"><span class="nav-text">5.2.2为什么要进行三次握手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-3为什么不进行一次握手或者两次握手"><span class="nav-text">5.2.3为什么不进行一次握手或者两次握手</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3四次挥手👉断开连接"><span class="nav-text">5.3四次挥手👉断开连接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-1详细解释"><span class="nav-text">5.3.1详细解释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-2为什么要进行四次挥手-为什么是四次而不是三次呢？"><span class="nav-text">5.3.2为什么要进行四次挥手，为什么是四次而不是三次呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-3为什么有time-wait？"><span class="nav-text">5.3.3为什么有TIME_WAIT？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4tcp可靠传输"><span class="nav-text">5.4TCP可靠传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5tcp滑动窗口"><span class="nav-text">5.5TCP滑动窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-5-1作用"><span class="nav-text">5.5.1作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-5-2tcp窗口机制"><span class="nav-text">5.5.2TCP窗口机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-5-3tcp窗口大小"><span class="nav-text">5.5.3TCP窗口大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-5-4窗口滑动协议"><span class="nav-text">5.5.4窗口滑动协议</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
