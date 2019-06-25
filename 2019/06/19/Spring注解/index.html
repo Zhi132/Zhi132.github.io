@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/06/19/Spring注解/Spring1.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/19/Spring注解/Spring2.png">
-<meta property="og:updated_time" content="2019-06-24T08:36:14.101Z">
+<meta property="og:updated_time" content="2019-06-25T00:52:09.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring注解">
 <meta name="twitter:description" content="核心容器">
@@ -322,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java知识点/" itemprop="url" rel="index">
-                    <span itemprop="name">Java知识点</span>
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
                   </a>
                 </span>
 
@@ -462,6 +462,55 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="bean的生命周期">Bean的生命周期</h4>
+<ul>
+<li>
+<h5 id="自定义初始化和销毁方法">自定义初始化和销毁方法</h5>
+<ul>
+<li>
+<h6 id="指定初始化和销毁方法">指定初始化和销毁方法</h6>
+<ul>
+<li>指定<code>init-method</code>  和 <code>destory-method</code>方法（配置文件时候使用的方法）</li>
+<li>@Bean(initMethod=&quot;&quot;,destoryMethod=&quot;&quot;) ------  注解的情况
+<ul>
+<li>初始化：对象创建完成，并赋值好，调用初始化方法</li>
+<li>销毁：容器关闭之后调用  多实例不进行销毁</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h6 id="通过实现initializingbean接口-初始化-disposablebean接口-销毁">通过实现InitializingBean接口(初始化)，DisposableBean接口(销毁)</h6>
+<ul>
+<li>在实现一个类之后，可以把它定义为组件@Compotent  这样是可以被配置文件进行扫描的</li>
+</ul>
+</li>
+<li>
+<h6 id="可以使用jsr250">可以使用JSR250</h6>
+<ul>
+<li>@PostConstruct:在Bean 创建完成，并且属性赋值完成，执行初始化</li>
+<li>@PreDestory:     在容器销毁Bean之前通知我们进行清理工作</li>
+</ul>
+</li>
+<li>
+<h6 id="beanpostprocessor-bean的后置处理器-在spring后端也大量使用">BeanPostProcessor:bean的后置处理器（在Spring后端也大量使用）</h6>
+<ul>
+<li>在bean初始化前后进行工作</li>
+<li>postProcessBeforeInitialization：初始化之前</li>
+<li>postProcessAfterInitialization：在初始化之后</li>
+</ul>
+</li>
+<li>
+<h6 id="spring底层对beanpostprocessor的使用">Spring底层对BeanPostProcessor的使用</h6>
+<ul>
+<li>bean赋值，注入其他主键，@Autowired，生命周期注解功能</li>
 </ul>
 </li>
 </ul>
@@ -627,7 +676,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -638,7 +687,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -717,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">核心容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring的核心jar包"><span class="nav-text">Spring的核心jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#没有注解之前-使用配置方式"><span class="nav-text">没有注解之前，使用配置方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用注解"><span class="nav-text">使用注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#configuration-配置类"><span class="nav-text">@Configuration  配置类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包扫描-context-componet-scan-class-context-componet-scan"><span class="nav-text">包扫描&lt;context:componet-scan class=&quot;&quot;&gt;&lt;/context:componet-scan&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#只要标注了-controller-service-repository-component-自动扫描"><span class="nav-text">只要标注了@Controller @Service @Repository @Component  自动扫描</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#另一种方法可以在配置类上边加注解-componentscan-value-和上边包扫描效果一样会自动扫描"><span class="nav-text">另一种方法可以在配置类上边加注解 @ComponentScan(value=&quot;&quot;)----和上边包扫描效果一样会自动扫描</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">核心容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring的核心jar包"><span class="nav-text">Spring的核心jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#没有注解之前-使用配置方式"><span class="nav-text">没有注解之前，使用配置方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用注解"><span class="nav-text">使用注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#configuration-配置类"><span class="nav-text">@Configuration  配置类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包扫描-context-componet-scan-class-context-componet-scan"><span class="nav-text">包扫描&lt;context:componet-scan class=&quot;&quot;&gt;&lt;/context:componet-scan&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#只要标注了-controller-service-repository-component-自动扫描"><span class="nav-text">只要标注了@Controller @Service @Repository @Component  自动扫描</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#另一种方法可以在配置类上边加注解-componentscan-value-和上边包扫描效果一样会自动扫描"><span class="nav-text">另一种方法可以在配置类上边加注解 @ComponentScan(value=&quot;&quot;)----和上边包扫描效果一样会自动扫描</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bean的生命周期"><span class="nav-text">Bean的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义初始化和销毁方法"><span class="nav-text">自定义初始化和销毁方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#指定初始化和销毁方法"><span class="nav-text">指定初始化和销毁方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#通过实现initializingbean接口-初始化-disposablebean接口-销毁"><span class="nav-text">通过实现InitializingBean接口(初始化)，DisposableBean接口(销毁)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#可以使用jsr250"><span class="nav-text">可以使用JSR250</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#beanpostprocessor-bean的后置处理器-在spring后端也大量使用"><span class="nav-text">BeanPostProcessor:bean的后置处理器（在Spring后端也大量使用）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#spring底层对beanpostprocessor的使用"><span class="nav-text">Spring底层对BeanPostProcessor的使用</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
