@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="网络,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小白" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="👉💭计算机网络">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="http://yoursite.com/2019/06/25/计算机网络/index.html">
+<meta property="og:site_name" content="小白">
+<meta property="og:description" content="👉💭计算机网络">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/06/25/计算机网络/jg.png">
+<meta property="og:image" content="http://pic.rmb.bdstatic.com/b2c69809e73399318b038fb81fb1ff67.png@wm_2,t_55m+5a625Y+3L+W3puaCoA==,fc_ffffff,ff_U2ltSGVp,sz_33,x_21,y_21">
+<meta property="og:updated_time" content="2019-06-25T10:13:21.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络">
+<meta name="twitter:description" content="👉💭计算机网络">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/25/计算机网络/jg.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/25/计算机网络/">
+
+
+
+
+
+  <title>计算机网络 | 小白</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+	<a href="https://github.com/Zhi132" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	</div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小白</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">努力努力再努力</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-首页 fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-关于 fa-link"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-归档 fa-bookmark"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-分类 fa-bars"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-标签 fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/计算机网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="银尘">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/test2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小白">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T13:27:18+08:00">
+                2019-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><font style="font-weight:bold;font-size:25px">👉💭计算机网络</font></p>
+<a id="more"></a>
+<h3 id="1-计算机网络体系结构">1、计算机网络体系结构</h3>
+<p><img src="/2019/06/25/计算机网络/jg.png" alt></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">OSI七层模型</th>
+<th style="text-align:center">TCP/IP概念层模型</th>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">TCP/IP协议族</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">应用层</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">文件传输，电子邮件，文件服务，虚拟终端</td>
+<td style="text-align:center">TFTP，HTTP，DNS</td>
+</tr>
+<tr>
+<td style="text-align:center">表示层</td>
+<td style="text-align:center">应用层</td>
+<td style="text-align:center">数据格式化，代码转换，数据加密</td>
+<td style="text-align:center">没有协议</td>
+</tr>
+<tr>
+<td style="text-align:center">会话层</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">解除或建立与别的接点的联系</td>
+<td style="text-align:center">没有协议</td>
+</tr>
+<tr>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">提供端对端的接口</td>
+<td style="text-align:center">TCP、UDP</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">为数据包选择路由(数据传输服务)</td>
+<td style="text-align:center">IP，ICMP、RIP、OSPF</td>
+</tr>
+<tr>
+<td style="text-align:center">数据链路层</td>
+<td style="text-align:center">链路层</td>
+<td style="text-align:center">传输有地址的帧以及错误检验功能</td>
+<td style="text-align:center">SLIP、CSLIP</td>
+</tr>
+<tr>
+<td style="text-align:center">物理层</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">以二进制数据形式在物理媒体上传输数据</td>
+<td style="text-align:center">ISO02110</td>
+</tr>
+</tbody>
+</table>
+<h4 id="传输层的两种协议">传输层的两种协议</h4>
+<p>​	1、传输控制协议TCP：提供面向连接、可靠的数据传输服务、数据单位为报文段。</p>
+<p>​	2、用户数据报协议UDP：提供无连接、尽最大努力的数据传输服务、数据单位为用户数据报。</p>
+<p>​	3、TCP主要提供完整性服务，UDP主要提供及时性服务。</p>
+<h4 id="tcp-ip">TCP/IP</h4>
+<p>​	1、它只有四层，相当于五层协议中数据链路层和物理层合并为网络接口层。</p>
+<p>​	2、TCP/IP 体系结构不严格遵循 OSI 分层概念，应用层可能会直接使用 IP 层或者网络接口层。</p>
+<p>​	3、TCP/IP 协议族是一种沙漏形状，中间小两边大，IP 协议在其中占据举足轻重的地位。</p>
+<h3 id="2-物理层">2、物理层</h3>
+<h4 id="2-1通信方式">2.1通信方式</h4>
+<p>根据信息在传输线上的传送方向，分为以下三种通信方式：</p>
+<ul>
+<li>单工通信：单向传输</li>
+<li>半双工通信：双向交替传输</li>
+<li>全双工通信：双向同时传输</li>
+</ul>
+<h3 id="3-数据链路层">3、数据链路层</h3>
+<h4 id="3-1基本问题">3.1基本问题</h4>
+<h5 id="1-封装成帧">1、封装成帧</h5>
+<blockquote>
+<p>​	将网络层传下来的分组添加首部和尾部，用于标记帧的开始和结束。</p>
+</blockquote>
+<h5 id="2-透明传输">2、透明传输</h5>
+<blockquote>
+<p>​	透明表示一个实际存在的事物看起来好像不存在一样。</p>
+<p><strong>fx</strong></p>
+<p>​	如果数据部分出现转义字符，那么就在转义字符前面再加个转义字符。在接收端进行处理之后可以还原出原始数据。这个过程透明传输的内容是转义字符，用户察觉不到转义字符的存在。</p>
+</blockquote>
+<h5 id="3-差错检验">3、差错检验</h5>
+<blockquote>
+<p>​	目前数据链路层广泛使用了循环冗余检验（CRC）来检查比特差错</p>
+</blockquote>
+<h4 id="3-2信道分类">3.2信道分类</h4>
+<h5 id="1-广播信道">1、 广播信道</h5>
+<blockquote>
+<p>​	一对多通信，一个节点发送的数据能够被广播信道上所有的节点接收到。</p>
+<p>所有的节点都在同一个广播信道上发送数据，因此需要有专门的控制方法进行协调，避免发生冲突（冲突也叫碰撞）。</p>
+<p>主要有两种控制方法进行协调，一个是使用信道复用技术，一是使用 CSMA/CD 协议。</p>
+</blockquote>
+<h5 id="2-点对点信道">2、点对点信道</h5>
+<blockquote>
+<p>​	因为不会发生碰撞，因此也比较简单，使用 PPP 协议进行控制。</p>
+</blockquote>
+<h4 id="3-3信道复用技术">3.3信道复用技术</h4>
+<h5 id="1-频分复用">1、频分复用</h5>
+<blockquote>
+<p>​	频分复用的所有主机在相同的时间占用不同的频率带宽资源。(利用率不高)</p>
+</blockquote>
+<h5 id="2-时分复用">2、时分复用</h5>
+<blockquote>
+<p>​	时分复用的所有主机在不同的时间占用相同的频率带宽资源。(利用率不高)</p>
+</blockquote>
+<h5 id="3-统计时分复用">3、统计时分复用</h5>
+<blockquote>
+<p>是对时分复用的一种改进，不固定每个用户在时分复用帧中的位置，只要有数据就集中起来组成统计时分复用帧然后发送。</p>
+</blockquote>
+<h5 id="4-波分复用">4、波分复用</h5>
+<blockquote>
+<p>​	光的频分复用。由于光的频率很高，因此习惯上用波长而不是频率来表示所使用的光载波。</p>
+</blockquote>
+<h5 id="5-码分复用">5、码分复用</h5>
+<blockquote>
+<p>​	为每个用户分配 m bit 的码片，并且所有的码片正交，对于任意两个码片 s 和 t有</p>
+</blockquote>
+<h4 id="3-4-csma-cd-协议">3.4 CSMA/CD 协议</h4>
+<p>CSMA/CD 表示载波监听多点接入 / 碰撞检测。</p>
+<ul>
+<li><strong>多点接入</strong> ：说明这是总线型网络，许多主机以多点的方式连接到总线上。</li>
+<li><strong>载波监听</strong> ：每个主机都必须不停地监听信道。在发送前，如果监听到信道正在使用，就必须等待。</li>
+<li><strong>碰撞检测</strong> ：在发送中，如果监听到信道已有其它主机正在发送数据，就表示发生了碰撞。虽然每个主机在发送数据之前都已经监听到信道为空闲，但是由于电磁波的传播时延的存在，还是有可能会发生碰撞。</li>
+</ul>
+<p>记端到端的传播时延为 τ，最先发送的站点最多经过 2τ 就可以知道是否发生了碰撞，称 2τ 为 <strong>争用期</strong> 。只有经过争用期之后还没有检测到碰撞，才能肯定这次发送不会发生碰撞。</p>
+<h4 id="3-5-ppp协议">3.5 PPP协议</h4>
+<blockquote>
+<p>互联网用户通常需要连接到某个 ISP 之后才能接入到互联网，PPP 协议是用户计算机和 ISP 进行通信时所使用的数据链路层协议。</p>
+</blockquote>
+<h4 id="3-6-mac地址">3.6 MAC地址</h4>
+<blockquote>
+<p>MAC 地址是链路层地址，长度为 6 字节（48 位），用于唯一标识网络适配器（网卡）。</p>
+</blockquote>
+<h4 id="3-7局域网">3.7局域网</h4>
+<blockquote>
+<p>局域网是一种典型的广播信道，主要特点是网络为一个单位所拥有，且地理范围和站点数目均有限。</p>
+</blockquote>
+<h4 id="3-8以太网">3.8以太网</h4>
+<blockquote>
+<p>以太网是一种星型拓扑结构局域网。</p>
+</blockquote>
+<h4 id="3-9交换机">3.9交换机</h4>
+<blockquote>
+<p>交换机具有自学习能力，学习的是交换表的内容，交换表中存储着 MAC 地址到接口的映射。</p>
+</blockquote>
+<h4 id="3-10虚拟局域网">3.10虚拟局域网</h4>
+<blockquote>
+<p>虚拟局域网可以建立与物理位置无关的逻辑组，只有在同一个虚拟局域网中的成员才会收到链路层广播信息</p>
+</blockquote>
+<h3 id="4-网络层">4、网络层</h3>
+<h4 id="4-1概念">4.1概念</h4>
+<blockquote>
+<p>因为网络层是整个互联网的核心，因此应当让网络层尽可能简单。网络层向上只提供简单灵活的、无连接的、尽最大努力交互的数据报服务。</p>
+<p>使用 IP 协议，可以把异构的物理网络连接起来，使得在网络层看起来好像是一个统一的网络。</p>
+</blockquote>
+<p>与 IP 协议配套使用的还有三个协议：</p>
+<ul>
+<li><strong>地址解析协议 ARP（Address Resolution Protocol）</strong></li>
+<li><strong>网际控制报文协议 ICMP（Internet Control Message Protocol）</strong></li>
+<li><strong>网际组管理协议 IGMP（Internet Group Management Protocol）</strong></li>
+</ul>
+<h5 id="4-1-1-ip分类的历史">4.1.1 IP分类的历史</h5>
+<p><strong>1.</strong> <strong>分类</strong></p>
+<p>由两部分组成，网络号和主机号，其中不同分类具有不同的网络号长度，并且是固定的。</p>
+<p>IP 地址 ::= {&lt; 网络号 &gt;, &lt; 主机号 &gt;}</p>
+<p><strong>2.</strong> <strong>子网划分</strong></p>
+<p>通过在主机号字段中拿一部分作为子网号，把两级 IP 地址划分为三级 IP 地址。</p>
+<p>IP 地址 ::= {&lt; 网络号 &gt;, &lt; 子网号 &gt;, &lt; 主机号 &gt;}</p>
+<p>要使用子网，必须配置子网掩码。一个 B 类地址的默认子网掩码为 255.255.0.0，如果 B 类地址的子网占两个比特，那么子网掩码为 11111111 11111111 11000000 00000000，也就是 255.255.192.0。</p>
+<p>注意，外部网络看不到子网的存在。</p>
+<p><strong>3.</strong> <strong>无分类</strong></p>
+<p>无分类编址 CIDR 消除了传统 A 类、B 类和 C 类地址以及划分子网的概念，使用网络前缀和主机号来对 IP 地址进行编码，网络前缀的长度可以根据需要变化。</p>
+<p>IP 地址 ::= {&lt; 网络前缀号 &gt;, &lt; 主机号 &gt;}</p>
+<p>CIDR 的记法上采用在 IP 地址后面加上网络前缀长度的方法，例如 128.14.35.7/20 表示前 20 位为网络前缀。</p>
+<p>CIDR 的地址掩码可以继续称为子网掩码，子网掩码首 1 长度为网络前缀的长度。</p>
+<p>一个 CIDR 地址块中有很多地址，一个 CIDR 表示的网络就可以表示原来的很多个网络，并且在路由表中只需要一个路由就可以代替原来的多个路由，减少了路由表项的数量。把这种通过使用网络前缀来减少路由表项的方式称为路由聚合，也称为 <strong>构成超网</strong> 。</p>
+<p>在路由表中的项目由“网络前缀”和“下一跳地址”组成，在查找时可能会得到不止一个匹配结果，应当采用最长前缀匹配来确定应该匹配哪一个。</p>
+<h3 id="5-传输层">5、传输层</h3>
+<h4 id="5-1tcp与udp的区别">5.1TCP与UDP的区别</h4>
+<ul>
+<li>
+<p>TCP是面向连接的，UDP是无连接的；</p>
+</li>
+<li>
+<p>TCP是可靠的，UDP是不可靠的；</p>
+</li>
+<li>
+<p>TCP只支持点对点通信，UDP支持一对一、一对多、多对一、多对多的通信模式；</p>
+</li>
+<li>
+<p>TCP是面向字节流的，UDP是面向报文的；</p>
+</li>
+<li>
+<p>TCP有拥塞控制机制;UDP没有拥塞控制，适合媒体通信；</p>
+</li>
+<li>
+<p>TCP首部开销(20个字节)比UDP的首部开销(8个字节)要大；</p>
+</li>
+</ul>
+<h4 id="5-2三次握手👉建立tcp连接">5.2三次握手👉建立TCP连接</h4>
+<blockquote>
+<p>​	所谓三次握手（Three-Way Handshake）即建立TCP连接，就是指建立一个TCP连接时，需要客户端和服务端总共发送3个包以确认连接的建立。在socket编程中，这一过程由客户端执行connect来触发，整个流程如下图所示：</p>
+</blockquote>
+<p><img src="http://pic.rmb.bdstatic.com/b2c69809e73399318b038fb81fb1ff67.png@wm_2,t_55m+5a625Y+3L+W3puaCoA==,fc_ffffff,ff_U2ltSGVp,sz_33,x_21,y_21" alt></p>
+<h5 id="5-2-1详细解释">5.2.1详细解释</h5>
+<p><strong>在下边介绍中使用到了标志位，这里也介绍一下</strong></p>
+<blockquote>
+<p>TCP标志位-------&gt;6种</p>
+<p>SYN---------------------建立联机（同步序号）</p>
+<p>ACK---------------------确认</p>
+<p>PSH---------------------传送</p>
+<p>FIN---------------------结束</p>
+<p>RST---------------------重置</p>
+<p>URG---------------------紧急</p>
+<p>Sequence number-----------------顺序号码)</p>
+<p>Acknowledge number-------------确认号码</p>
+</blockquote>
+<p>前提：A为客户端，B为服务端，B应该处于监听状态，等待客户需求。</p>
+<p>第一步：A-&gt;B发起报文请求，SYN=1，ACK=0，初始序号为x.</p>
+<p>第二步：B收到报文请求之后，如果同意建立连接，则会向A发送连接确认报文，SYN=1，ACK=1，确认号为x+1，				同时也需要发送一个初始的序号y。</p>
+<p>第三步：A收到B的确认之后，还需要继续向B发出确认，确认号为y+1，序号为x+1.B收到之后，与A建立连接。</p>
+<h5 id="5-2-2为什么要进行三次握手">5.2.2为什么要进行三次握手</h5>
+<p>第三次握手是为了防止失效的连接请求到达服务器，让服务器错误打开连接。</p>
+<p>客户端发送的连接请求如果在网络中滞留，那么就会隔很长一段时间才能收到服务器端发回的连接确认。客户端等待一个超时重传时间之后，就会重新请求连接。但是这个滞留的连接请求最后还是会到达服务器，如果不进行三次握手，那么服务器就会打开两个连接。如果有第三次握手，客户端会忽略服务器之后发送的对滞留连接请求的连接确认，不进行第三次握手，因此就不会再次打开连接。</p>
+<h5 id="5-2-3为什么不进行一次握手或者两次握手">5.2.3为什么不进行一次握手或者两次握手</h5>
+<blockquote>
+<p>​	为什么不能一次握手很容易理解，TCP是面向连接的，一次握手肯定建立不了连接，一条信息发出去连个回信都没有怎么连接？</p>
+<p>​	所以问题在为什么不能两次握手，这个问题也很容易网上说的也不少，假设只有两次握手，比如图中的1，2步，当A想要建立连接时发送一个SYN，然后等待ACK，结果这个SYN因为网络问题没有及时到达B，所以A在一段时间内没收到ACK后，在发送一个SYN，B也成功收到，然后A也收到ACK，这时A发送的第一个SYN终于到了B，对于B来说这是一个新连接请求，然后B又为这个连接申请资源，返回ACK，然而这个SYN是个无效的请求，A收到这个SYN的ACK后也并不会理会它，而B却不知道，B会一直为这个连接维持着资源，造成资源的浪费</p>
+<p>​	那三次握手为什么可以？两次握手的问题在于服务器端不知道一个SYN是否是无效的，而三次握手机制因为客户端会给服务器回复第二次握手，也意味着服务器会等待客户端的第三次握手，如果第三次握手迟迟不来，服务器便会认为这个SYN是无效的，释放相关资源。但这时有个问题就是客户端完成第二次握手便认为连接已建立，而第三次握手可能在传输中丢失，服务端会认为连接是无效的，这时如果Client端向Server写数据，Server端将以RST包响应，方能感知到Server的错误。</p>
+<p><strong>实现机制（上边已经阐述）</strong></p>
+<p>第一次握手A发送SYN传输失败，A,B都不会申请资源，连接失败。如果一段时间内发出多个SYN连接请求，那么A只会接受它最后发送的那个SYN的SYN+ACK回应，忽略其他回应全部回应，B中多申请的资源也会释放</p>
+<p>第二次握手B发送SYN+ACK传输失败，A不会申请资源，B申请了资源，但收不到A的ACK，过一段时间释放资源。如果是收到了多个A的SYN请求，B都会回复SYN+ACK，但A只会承认其中它最早发送的那个SYN的回应，并回复最后一次握手的ACK</p>
+<p>第三次握手ACK传输失败，B没有收到ACK，释放资源，对于后序的A的传输数据返回RST。实际上B会因为没有收到A的ACK会多次发送SYN+ACK，次数是可以设置的，如果最后还是没有收到A的ACK，则释放资源，对A的数据传输返回RST</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+	
+      
+	  <div>
+        
+		</div>
+      
+	
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zfb.png" alt="银尘 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/wx.jpg" alt="银尘 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" rel="tag"><i class="fa fa-tag"></i> 网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/25/Spring事务管理/" rel="next" title="Spring事务管理">
+                <i class="fa fa-chevron-left"></i> Spring事务管理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/test2.jpg" alt="银尘">
+            
+              <p class="site-author-name" itemprop="name">银尘</p>
+              <p class="site-description motion-element" itemprop="description">new 对象</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Zhi132" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_40984919" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-codiepie"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/5247494884/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-计算机网络体系结构"><span class="nav-text">1、计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传输层的两种协议"><span class="nav-text">传输层的两种协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tcp-ip"><span class="nav-text">TCP/IP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-物理层"><span class="nav-text">2、物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1通信方式"><span class="nav-text">2.1通信方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数据链路层"><span class="nav-text">3、数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1基本问题"><span class="nav-text">3.1基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-封装成帧"><span class="nav-text">1、封装成帧</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-透明传输"><span class="nav-text">2、透明传输</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-差错检验"><span class="nav-text">3、差错检验</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2信道分类"><span class="nav-text">3.2信道分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-广播信道"><span class="nav-text">1、 广播信道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-点对点信道"><span class="nav-text">2、点对点信道</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3信道复用技术"><span class="nav-text">3.3信道复用技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-频分复用"><span class="nav-text">1、频分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-时分复用"><span class="nav-text">2、时分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-统计时分复用"><span class="nav-text">3、统计时分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-波分复用"><span class="nav-text">4、波分复用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-码分复用"><span class="nav-text">5、码分复用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-csma-cd-协议"><span class="nav-text">3.4 CSMA/CD 协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-ppp协议"><span class="nav-text">3.5 PPP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-mac地址"><span class="nav-text">3.6 MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7局域网"><span class="nav-text">3.7局域网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8以太网"><span class="nav-text">3.8以太网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-9交换机"><span class="nav-text">3.9交换机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-10虚拟局域网"><span class="nav-text">3.10虚拟局域网</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-网络层"><span class="nav-text">4、网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1概念"><span class="nav-text">4.1概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-1-ip分类的历史"><span class="nav-text">4.1.1 IP分类的历史</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-传输层"><span class="nav-text">5、传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1tcp与udp的区别"><span class="nav-text">5.1TCP与UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2三次握手👉建立tcp连接"><span class="nav-text">5.2三次握手👉建立TCP连接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-1详细解释"><span class="nav-text">5.2.1详细解释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-2为什么要进行三次握手"><span class="nav-text">5.2.2为什么要进行三次握手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-3为什么不进行一次握手或者两次握手"><span class="nav-text">5.2.3为什么不进行一次握手或者两次握手</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">银尘</span>
+
+  
+</div>
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("04/17/2019 15:13:14");//修改为自己的blog建站时间
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="本站已安全运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访问人数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      阅读次数 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+</body>
+</html>
