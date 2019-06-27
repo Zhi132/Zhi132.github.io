@@ -81,21 +81,20 @@
 
 
 
-<meta name="description" content="核心容器">
+<meta name="description" content="单例模式">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring注解">
-<meta property="og:url" content="http://yoursite.com/2019/06/19/Spring注解/index.html">
+<meta property="og:title" content="单例模式详解">
+<meta property="og:url" content="http://yoursite.com/2019/06/26/单例模式详解/index.html">
 <meta property="og:site_name" content="小白">
-<meta property="og:description" content="核心容器">
+<meta property="og:description" content="单例模式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/06/19/Spring注解/Spring1.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/19/Spring注解/Spring2.png">
-<meta property="og:updated_time" content="2019-06-25T00:52:09.448Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/26/单例模式详解/d1.png">
+<meta property="og:updated_time" content="2019-06-27T00:38:05.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring注解">
-<meta name="twitter:description" content="核心容器">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/19/Spring注解/Spring1.png">
+<meta name="twitter:title" content="单例模式详解">
+<meta name="twitter:description" content="单例模式">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/26/单例模式详解/d1.png">
 
 
 
@@ -125,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/19/Spring注解/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/26/单例模式详解/">
 
 
 
 
 
-  <title>Spring注解 | 小白</title>
+  <title>单例模式详解 | 小白</title>
   
 
 
@@ -270,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/Spring注解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/26/单例模式详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="银尘">
@@ -287,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring注解</h1>
+          <h1 class="post-title" itemprop="name headline">单例模式详解</h1>
         
 
         <div class="post-meta">
@@ -299,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-19T15:40:17+08:00">
-                2019-06-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-26T21:39:11+08:00">
+                2019-06-26
               </time>
             
 
@@ -322,8 +321,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
+                  <a href="/categories/Java知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">Java知识点</span>
                   </a>
                 </span>
 
@@ -364,160 +363,44 @@
       
 
       
-        <h1>核心容器</h1>
+        <h2 id="单例模式">单例模式</h2>
 <a id="more"></a>
-<h2 id="spring的核心jar包">Spring的核心jar包</h2>
-<p>​		一、spring-context-----maven注入</p>
-<h3 id="没有注解之前-使用配置方式">没有注解之前，使用配置方式</h3>
-<p>​					<img src="/2019/06/19/Spring注解/Spring1.png" alt="Spring1"></p>
-<h3 id="使用注解">使用注解</h3>
-<ul>
-<li>
-<h4 id="configuration-配置类">@Configuration  配置类</h4>
-<ul>
-<li>
-<p>@Bean给容器一注册一个Bean；类型为方绘制的类型，id默认为id</p>
-<ul>
-<li>可以给Bean添加value值</li>
-</ul>
-</li>
-<li>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContextnew a = AnnotationConfigApplicationContext(配置类.class);</span><br><span class="line">Person p = a.getBean(Person.class);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li>
-<h4 id="包扫描-context-componet-scan-class-context-componet-scan">包扫描&lt;context:componet-scan class=&quot;&quot;&gt;&lt;/context:componet-scan&gt;</h4>
-<ul>
-<li>
-<h5 id="只要标注了-controller-service-repository-component-自动扫描">只要标注了@Controller @Service @Repository @Component  自动扫描</h5>
-<ul>
-<li>包扫描过滤 在其下边继续写&lt;context:include合作者exclude</li>
-</ul>
-</li>
-<li>
-<h5 id="另一种方法可以在配置类上边加注解-componentscan-value-和上边包扫描效果一样会自动扫描">另一种方法可以在配置类上边加注解 @ComponentScan(value=&quot;&quot;)----和上边包扫描效果一样会自动扫描</h5>
-<ul>
-<li>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">指定要扫描的包</span><br><span class="line"><span class="meta">@ComponentScan</span>(value=<span class="string">""</span>,excludeFilters = &#123;</span><br><span class="line">		<span class="meta">@Filter</span>(type=FilterType.ANNOTATION,classes=							  				&#123;Controller.class,Service,<span class="class"><span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">		&#125;)</span></span><br><span class="line"><span class="class">如果要使用只扫描--我们需要把<span class="title">useDefaultFilters</span> </span>= <span class="keyword">false</span>  默认扫描关闭</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>在其中我们还可以使用ComponentScans来扫描多个  value是数组</p>
-</li>
-<li>
-<p><img src="/2019/06/19/Spring注解/Spring2.png" alt></p>
-</li>
-<li>
-<p>常用规则（扫描方式）</p>
-<ul>
-<li>
 <blockquote>
-<p>FilterType.*</p>
-<p>1、<strong>ANNOTATION</strong>  				按照注解</p>
-<p>2、<strong>ASSIGNABLE_TYPE</strong> 		按照给定的类型</p>
-<p>3、ASPECTJ 							ASPECTJ表达式</p>
-<p>4、REGEX								正则表达式</p>
-<p>5、CUSTOM							自定义规则</p>
-<ul>
-<li>需要实现TypeFilter接口</li>
-</ul>
+<p>简单点说，就是一个应用程序中，某个类的实例对象只有一个，你没有办法去new，因为构造器是被private修饰的，一般通过getInstance()的方法来获取它们的实例。getInstance()的返回值是一个对象的引用，并不是一个新的实例,所以不要错误的理解成多个对象。单例模式实现起来也很容易，直接看demo吧</p>
 </blockquote>
-</li>
-<li>
-<p>修改Scope（调整组件作用域）</p>
-<ul>
-<li>prototype	多实例的</li>
-<li>singletion     单实例的</li>
-</ul>
-</li>
-<li>
-<p>懒加载@Lazy</p>
-<ul>
-<li>单实例Bean：默认在启动的时候创建对象</li>
-<li>第一次使用Bean的时候再创建对象-----懒加载</li>
-</ul>
-</li>
-<li>
-<p>按照条件注册bean</p>
-<ul>
-<li>@Conditional:	按照一定的条件进行判断，满足条件给容器中注册bean</li>
-<li>@Conditional(Condition数组—》类.class)</li>
-<li>实现的类需要实现Conditional接口，来为后续的判断提供条件</li>
-</ul>
-</li>
-<li>
-<p>import[快速给容器导入组件]</p>
-<ul>
-<li>@Import(要导入到容器中的组件)；容器就会自动注册这个组件</li>
-<li>@ImportSelector：返回需要导入的组件的全类名的注解
-<ul>
-<li>实现的接口 里边写返回的类函数</li>
-</ul>
-</li>
-<li>@ImportBeanDefinitionRegistrar  手动注册bean到容器中</li>
-<li>使用Spring的FactoryBean方法（工厂Bean）
-<ul>
-<li>获得工厂bean的方法  在前边加引用</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<h4 id="bean的生命周期">Bean的生命周期</h4>
-<ul>
-<li>
-<h5 id="自定义初始化和销毁方法">自定义初始化和销毁方法</h5>
-<ul>
-<li>
-<h6 id="指定初始化和销毁方法">指定初始化和销毁方法</h6>
-<ul>
-<li>指定<code>init-method</code>  和 <code>destory-method</code>方法（配置文件时候使用的方法）</li>
-<li>@Bean(initMethod=&quot;&quot;,destoryMethod=&quot;&quot;) ------  注解的情况
-<ul>
-<li>初始化：对象创建完成，并赋值好，调用初始化方法</li>
-<li>销毁：容器关闭之后调用  多实例不进行销毁</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<h6 id="通过实现initializingbean接口-初始化-disposablebean接口-销毁">通过实现InitializingBean接口(初始化)，DisposableBean接口(销毁)</h6>
-<ul>
-<li>在实现一个类之后，可以把它定义为组件@Compotent  这样是可以被配置文件进行扫描的</li>
-</ul>
-</li>
-<li>
-<h6 id="可以使用jsr250">可以使用JSR250</h6>
-<ul>
-<li>@PostConstruct:在Bean 创建完成，并且属性赋值完成，执行初始化</li>
-<li>@PreDestory:     在容器销毁Bean之前通知我们进行清理工作</li>
-</ul>
-</li>
-<li>
-<h6 id="beanpostprocessor-bean的后置处理器-在spring后端也大量使用">BeanPostProcessor:bean的后置处理器（在Spring后端也大量使用）</h6>
-<ul>
-<li>在bean初始化前后进行工作</li>
-<li>postProcessBeforeInitialization：初始化之前</li>
-<li>postProcessAfterInitialization：在初始化之后</li>
-</ul>
-</li>
-<li>
-<h6 id="spring底层对beanpostprocessor的使用">Spring底层对BeanPostProcessor的使用</h6>
-<ul>
-<li>bean赋值，注入其他主键，@Autowired，生命周期注解功能</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p><strong>下边书写一个Singleton来表示创建单例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.singletonpattern;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 简单点说，就是一个应用程序中，某个类的实例对象只有一个，你没有办法去new，</span></span><br><span class="line"><span class="comment"> * 因为构造器是被private修饰的，一般通过getInstance()的方法来获取它们的实例。</span></span><br><span class="line"><span class="comment"> * getInstance()的返回值是一个对象的引用，并不是一个新的实例，</span></span><br><span class="line"><span class="comment"> * 所以不要错误的理解成多个对象。单例模式实现起来也很容易，直接看demo吧</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 持有私有静态实例，防止被引用，此处赋值为null，目的是实现延迟加载 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 私有构造方法，防止被实例化 */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 静态工程方法，创建实例 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;	<span class="comment">//1、读取</span></span><br><span class="line">            singleton = <span class="keyword">new</span> Singleton();	<span class="comment">//2、实例化</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>创建多线程来访问</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.singletonpattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MultiThreadMain</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ExecutorService threadPool = Executors.newFixedThreadPool(<span class="number">20</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++)&#123;</span><br><span class="line">            threadPool.execute(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread().getName()+<span class="string">":"</span>+Singleton.getInstance());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>我们可以看一下运行结果</strong></p>
+<p><img src="/2019/06/26/单例模式详解/d1.png" alt></p>
+<p>我们可以看到在这个结果中出现了一个com.singletonpattern.Singleton@703b5，说明返回的不是一个实例。这就谈到了我们的线程安全问题。</p>
+<h3 id="为什么会出现线程安全问题呢？">为什么会出现线程安全问题呢？</h3>
+<p>​	如果此时有两个线程，线程A执行到1处，读取了instance为null，然后cpu就被线程B抢去了，此时，线程A还没有对instance进行实例化。</p>
+<p>​	因此，线程B读取instance时仍然为null，于是，它对instance进行实例化了。然后，cpu就被线程A抢去了。此时，线程A由于已经读取了instance的值并且认为它为null，所以，</p>
+<p>​	再次对instance进行实例化。所以，线程A和线程B返回的不是同一个实例。</p>
+<h3 id="如何去解决呢？">如何去解决呢？</h3>
+<h4 id="1-在方法前边加synchronized修饰-这样肯定不会再有线程安全问题">1、在方法前边加synchronized修饰。这样肯定不会再有线程安全问题。</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 持有私有静态实例，防止被引用，此处赋值为null，目的是实现延迟加载 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 私有构造方法，防止被实例化 */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">            singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方法会很慢</p>
+<blockquote>
+<p>​	这种解决方式，假如有100个线程同时执行，那么，每次去执行getInstance方法时都要先获得锁再去执行方法体，如果没有锁，就要等待，耗时长，感觉像是变成了串行处理。因此，尝试其他更好的处理方式。</p>
+</blockquote>
+<h4 id="2-加同步代码块-减少锁的颗粒大小">2、加同步代码块，减少锁的颗粒大小。</h4>
+<blockquote>
+<p>​	我们发现，只有第一次instance为null的时候，才去创建实例，而判断instance是否为null是读的操作，不可能存在线程安全问题，因此，我们只需要对创建实例的代码进行同步代码块的处理，也就是所谓的对可能出现线程安全的代码进行同步代码块的处理。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 持有私有静态实例，防止被引用，此处赋值为null，目的是实现延迟加载 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 私有构造方法，防止被实例化 */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class)&#123;</span><br><span class="line">                singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样解决之后还会出现问题么？答案是肯定的。</p>
+<blockquote>
+<p>​	如果此时有两个线程，线程A执行到1处，读取了instance为null，然后cpu就被线程B抢去了，此时，线程A还没有对instance进行实例化。</p>
+<p>​	因此，线程B读取instance时仍然为null，于是，它对instance进行实例化了。然后，cpu就被线程A抢去了。此时，线程A由于已经读取了instance的值并且认为它为null，所以，</p>
+<p>​	再次对instance进行实例化。所以，线程A和线程B返回的不是同一个实例。</p>
+<p><span style="color:blue;font-size:25px">与刚开始分析的问题是一致的</span></p>
+</blockquote>
+<h4 id="3-在上边问题出现之后我们还可以怎么样去解决这个问题呢？">3、在上边问题出现之后我们还可以怎么样去解决这个问题呢？</h4>
+<p>​		我们可以想到，如果在同步构造块之前与之后我们都进行null判断，那么我们是不是可以缓解线程安全问题。</p>
+<p>答案是：<strong>可以的</strong>--------&gt;<strong>(双重检查加锁)</strong></p>
 
       
     </div>
@@ -585,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/18/JavaSE基础/" rel="next" title="JavaSE基础">
-                <i class="fa fa-chevron-left"></i> JavaSE基础
+              <a href="/2019/06/25/Java设计模式/" rel="next" title="Java设计模式">
+                <i class="fa fa-chevron-left"></i> Java设计模式
               </a>
             
           </div>
@@ -595,8 +478,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/20/深入浅出-MySQL/" rel="prev" title="深入浅出-MySQL">
-                深入浅出-MySQL <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/27/观察者模式/" rel="prev" title="观察者模式">
+                观察者模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -766,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">核心容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring的核心jar包"><span class="nav-text">Spring的核心jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#没有注解之前-使用配置方式"><span class="nav-text">没有注解之前，使用配置方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用注解"><span class="nav-text">使用注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#configuration-配置类"><span class="nav-text">@Configuration  配置类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包扫描-context-componet-scan-class-context-componet-scan"><span class="nav-text">包扫描&lt;context:componet-scan class=&quot;&quot;&gt;&lt;/context:componet-scan&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#只要标注了-controller-service-repository-component-自动扫描"><span class="nav-text">只要标注了@Controller @Service @Repository @Component  自动扫描</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#另一种方法可以在配置类上边加注解-componentscan-value-和上边包扫描效果一样会自动扫描"><span class="nav-text">另一种方法可以在配置类上边加注解 @ComponentScan(value=&quot;&quot;)----和上边包扫描效果一样会自动扫描</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bean的生命周期"><span class="nav-text">Bean的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义初始化和销毁方法"><span class="nav-text">自定义初始化和销毁方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#指定初始化和销毁方法"><span class="nav-text">指定初始化和销毁方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#通过实现initializingbean接口-初始化-disposablebean接口-销毁"><span class="nav-text">通过实现InitializingBean接口(初始化)，DisposableBean接口(销毁)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#可以使用jsr250"><span class="nav-text">可以使用JSR250</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#beanpostprocessor-bean的后置处理器-在spring后端也大量使用"><span class="nav-text">BeanPostProcessor:bean的后置处理器（在Spring后端也大量使用）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#spring底层对beanpostprocessor的使用"><span class="nav-text">Spring底层对BeanPostProcessor的使用</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么会出现线程安全问题呢？"><span class="nav-text">为什么会出现线程安全问题呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何去解决呢？"><span class="nav-text">如何去解决呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在方法前边加synchronized修饰-这样肯定不会再有线程安全问题"><span class="nav-text">1、在方法前边加synchronized修饰。这样肯定不会再有线程安全问题。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-加同步代码块-减少锁的颗粒大小"><span class="nav-text">2、加同步代码块，减少锁的颗粒大小。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在上边问题出现之后我们还可以怎么样去解决这个问题呢？"><span class="nav-text">3、在上边问题出现之后我们还可以怎么样去解决这个问题呢？</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
