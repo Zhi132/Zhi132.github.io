@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="小白">
 <meta property="og:description" content="Java容器与设计模式解释">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-28T09:35:56.965Z">
+<meta property="og:updated_time" content="2019-06-30T01:46:29.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java容器知识点">
 <meta name="twitter:description" content="Java容器与设计模式解释">
@@ -347,7 +347,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次阅读
             </span>
           
 
@@ -400,7 +400,12 @@
 </ol>
 <h3 id="java语言特性">Java语言特性</h3>
 <h4 id="知识详解">知识详解</h4>
-<p>==HashMap==</p>
+<p><strong>数组与链表的区别</strong></p>
+<ul>
+<li>数组：连续空间，寻址迅速，在删除或添加缘故的时候需要有较大的幅度的移动，查询速度块</li>
+<li>链表：空间不连续，寻址困难，增删元素只需修改指针。查询慢，增删块。</li>
+</ul>
+<p><strong>HashMap</strong></p>
 <ul>
 <li>数组加链表的实现方式</li>
 <li>容量大小是2的幂次方
@@ -422,13 +427,18 @@
 <li>调用 put 方法时，使用键值对中的 Key hashCode() 和哈希算法找出存储键值对索引。键值对 Entry 存储在 LinkedList 中，如果存在 Entry，使用 equals() 方法来检查 Key 是否已经存在：如果存在，则覆盖 value；如果不存在，会创建一个新的 Entry 然后保存。</li>
 <li>调用 get 方法时，HashMap 使用键值 Key hashCode() 来找到数组中的索引，然后使用 equals() 方法找出正确的 Entry，返回 Entry 中的 Value。</li>
 </ul>
-<p>==ConcurrentHashMap==</p>
+<p><strong>ConcurrentHashMap</strong></p>
 <blockquote>
 <p>ConcurrentHashMap 和 HashMap 实现上类似，最主要的差别是 ConcurrentHashMap 采用了分段锁（Segment），每个分段锁维护着几个桶（HashEntry），多个线程可以同时访问不同分段锁上的桶，从而使其并发度更高（并发度就是 Segment 的个数）。</p>
 </blockquote>
 <ol>
 <li>
 <p>并发控制与分段锁的思想</p>
+<blockquote>
+<p><strong>锁分段技术</strong>：首先将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问。</p>
+<p>ConcurrentHashMap提供了与Hashtable和SynchronizedMap不同的锁机制。Hashtable中采用的锁机制是一次锁住整个hash表，从而在同一时刻只能由一个线程对其进行操作；而ConcurrentHashMap中则是一次锁住一个桶。</p>
+<p>ConcurrentHashMap默认将hash表分为16个桶，诸如get、put、remove等常用操作只锁住当前需要用到的桶。这样，原来只能一个线程进入，现在却能同时有16个写线程执行，并发性能的提升是显而易见的。</p>
+</blockquote>
 </li>
 <li>
 <p>1.8的CAS自旋锁</p>
@@ -514,7 +524,7 @@
 </li>
 </ol>
 <h3 id="容器的区别">容器的区别</h3>
-<p>==HashTable与HashTable==</p>
+<p><strong>HashMap与HashTable</strong></p>
 <ol>
 <li>HashTable
 <ul>
@@ -563,12 +573,12 @@
 </ul>
 <h5 id="2-list">2.List</h5>
 <ul>
-<li>ArrayList</li>
-</ul>
+<li>
+<p>ArrayList</p>
 <blockquote>
 <p>基于动态数组实现，支持随机访问。</p>
 </blockquote>
-<ul>
+</li>
 <li>
 <p>Vector</p>
 <blockquote>
@@ -742,6 +752,11 @@ LinkedList 在任意位置添加删除元素更快。
           
 
   
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTAwNy8yMTUyNw=="></div>
+    </div>
+
+  
 
 
 
@@ -791,7 +806,7 @@ LinkedList 在任意位置添加删除元素更快。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -813,7 +828,7 @@ LinkedList 在任意位置添加删除元素更快。
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -864,6 +879,36 @@ LinkedList 在任意位置添加删除元素更快。
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/zhangerqing?t=1" title="二青" target="_blank">二青</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://songvei.github.io/" title="Sv’blogs" target="_blank">Sv’blogs</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wf.uisdc.com/cn/" title="google前端开发基础" target="_blank">google前端开发基础</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -1060,6 +1105,78 @@ show_date_time();
 
 
 
+    <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+
   
   
 
@@ -1103,6 +1220,17 @@ show_date_time();
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
