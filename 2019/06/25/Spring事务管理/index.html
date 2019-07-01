@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="小白">
 <meta property="og:description" content="👉🙋Spring事务管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-25T05:16:30.196Z">
+<meta property="og:updated_time" content="2019-07-01T07:07:45.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring事务管理">
 <meta name="twitter:description" content="👉🙋Spring事务管理">
@@ -374,7 +374,22 @@
 <h3 id="1-1spring-jdbc的配置">1.1Spring JDBC的配置</h3>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--添加数据库连接驱动以及URL，USER，PASS--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="1-2spring-jdbctemplate的常用方法">1.2Spring JdbcTemplate的常用方法</h3>
-<figure class="highlight plain"><figcaption><span>int update(String sql,Object args[]);```对数据表进行增加，修改，删除</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```public List&lt;T&gt; query(Strinbg sql,RowMapper&lt;T&gt; rowMapper,Object args[]);```查询操作，并映射到自定义类中----》rowMapper</span><br><span class="line"></span><br><span class="line">## 2、编程式事务管理</span><br><span class="line"></span><br><span class="line">&gt; ​	概念：在代码中调用beginTransaction、commit、rollback等与事务处理相关的方法。</span><br><span class="line"></span><br><span class="line">### 2.1基于底层API的编程式事务管理</span><br><span class="line"></span><br><span class="line">&gt; ​	基于底层API的编程式事务管理，就是根据**PlatformTransactionManager**、**TransactionDefinition** 和 **TransactionStatus** 三个核心接口，通过编程的方式来进行事务处理。</span><br><span class="line"></span><br><span class="line">#### 2.1.1给数据源配置事务管理器</span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;!—为数据源添加事务管理器 --&gt;</span><br><span class="line">&lt;bean id=&quot;txManager&quot;   </span><br><span class="line">	   class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;   </span><br><span class="line">	   &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;   </span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>public int update(String sql,Object args[]);对数据表进行增加，修改，删除</p>
+</blockquote>
+<blockquote>
+<p>public List<t> query(Strinbg sql,RowMapper<t> rowMapper,Object args[]);查询操作，并映射到自定义类中----》rowMapper</t></t></p>
+</blockquote>
+<h2 id="2-编程式事务管理">2、编程式事务管理</h2>
+<blockquote>
+<p>​	概念：在代码中调用beginTransaction、commit、rollback等与事务处理相关的方法。</p>
+</blockquote>
+<h3 id="2-1基于底层api的编程式事务管理">2.1基于底层API的编程式事务管理</h3>
+<blockquote>
+<p>​	基于底层API的编程式事务管理，就是根据<strong>PlatformTransactionManager</strong>、<strong>TransactionDefinition</strong> 和 <strong>TransactionStatus</strong> 三个核心接口，通过编程的方式来进行事务处理。</p>
+</blockquote>
+<h4 id="2-1-1给数据源配置事务管理器">2.1.1给数据源配置事务管理器</h4>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!—为数据源添加事务管理器</span> <span class="attr">--</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"txManager"</span>   </span></span><br><span class="line"><span class="tag">	   <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span>   </span><br><span class="line">	   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span> /&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="2-1-2创建数据访问类">2.1.2创建数据访问类</h4>
 <h4 id="2-1-3创建测试类">2.1.3创建测试类</h4>
 <h3 id="2-2-基于transactiontemplate的编程式事务管理">2.2、基于TransactionTemplate的编程式事务管理</h3>
@@ -512,6 +527,33 @@
 
 
     <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
       
     </div>
   </div>
@@ -698,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-spring的数据库编程"><span class="nav-text">1、Spring的数据库编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1spring-jdbc的配置"><span class="nav-text">1.1Spring JDBC的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2spring-jdbctemplate的常用方法"><span class="nav-text">1.2Spring JdbcTemplate的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2创建数据访问类"><span class="nav-text">2.1.2创建数据访问类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3创建测试类"><span class="nav-text">2.1.3创建测试类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-基于transactiontemplate的编程式事务管理"><span class="nav-text">2.2、基于TransactionTemplate的编程式事务管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-声明式事务管理"><span class="nav-text">3、声明式事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1基于xml方式的声明式事务管理"><span class="nav-text">3.1基于XML方式的声明式事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1导入jar包"><span class="nav-text">3.1.1导入jar包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2创建dao层"><span class="nav-text">3.1.2创建Dao层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3创建service层"><span class="nav-text">3.1.3创建Service层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-4创建controller层"><span class="nav-text">3.1.4创建Controller层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-5创建配置文件-重要"><span class="nav-text">3.1.5创建配置文件—重要</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2基于-transactional注解的声明式事务管理"><span class="nav-text">3.2基于@Transactional注解的声明式事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1创建配置文件"><span class="nav-text">3.2.1创建配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2为service添加-transactional注解"><span class="nav-text">3.2.2为Service添加@Transactional注解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3如何在事务处理中捕获异常"><span class="nav-text">3.3如何在事务处理中捕获异常</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1声明式事务处理的流程"><span class="nav-text">3.3.1声明式事务处理的流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2在基于xml的方式的声明式事务管理中捕获异常"><span class="nav-text">3.3.2在基于XML的方式的声明式事务管理中捕获异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3在基于注解的声明式事务管理中捕获异常"><span class="nav-text">3.3.3在基于注解的声明式事务管理中捕获异常</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-spring的数据库编程"><span class="nav-text">1、Spring的数据库编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1spring-jdbc的配置"><span class="nav-text">1.1Spring JDBC的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2spring-jdbctemplate的常用方法"><span class="nav-text">1.2Spring JdbcTemplate的常用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-编程式事务管理"><span class="nav-text">2、编程式事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1基于底层api的编程式事务管理"><span class="nav-text">2.1基于底层API的编程式事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1给数据源配置事务管理器"><span class="nav-text">2.1.1给数据源配置事务管理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2创建数据访问类"><span class="nav-text">2.1.2创建数据访问类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3创建测试类"><span class="nav-text">2.1.3创建测试类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-基于transactiontemplate的编程式事务管理"><span class="nav-text">2.2、基于TransactionTemplate的编程式事务管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-声明式事务管理"><span class="nav-text">3、声明式事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1基于xml方式的声明式事务管理"><span class="nav-text">3.1基于XML方式的声明式事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1导入jar包"><span class="nav-text">3.1.1导入jar包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2创建dao层"><span class="nav-text">3.1.2创建Dao层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3创建service层"><span class="nav-text">3.1.3创建Service层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-4创建controller层"><span class="nav-text">3.1.4创建Controller层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-5创建配置文件-重要"><span class="nav-text">3.1.5创建配置文件—重要</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2基于-transactional注解的声明式事务管理"><span class="nav-text">3.2基于@Transactional注解的声明式事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1创建配置文件"><span class="nav-text">3.2.1创建配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2为service添加-transactional注解"><span class="nav-text">3.2.2为Service添加@Transactional注解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3如何在事务处理中捕获异常"><span class="nav-text">3.3如何在事务处理中捕获异常</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1声明式事务处理的流程"><span class="nav-text">3.3.1声明式事务处理的流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2在基于xml的方式的声明式事务管理中捕获异常"><span class="nav-text">3.3.2在基于XML的方式的声明式事务管理中捕获异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3在基于注解的声明式事务管理中捕获异常"><span class="nav-text">3.3.3在基于注解的声明式事务管理中捕获异常</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
