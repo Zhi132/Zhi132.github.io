@@ -97,7 +97,7 @@
 <meta property="og:description" content="前言  本篇博客是关于JVM虚拟机一些见解 😊JVM虚拟机">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/07/01/JVM虚拟机/1.png">
-<meta property="og:updated_time" content="2019-07-01T07:59:31.688Z">
+<meta property="og:updated_time" content="2019-07-01T08:11:35.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM虚拟机">
 <meta name="twitter:description" content="前言  本篇博客是关于JVM虚拟机一些见解 😊JVM虚拟机">
@@ -458,6 +458,12 @@
 </ul>
 <h5 id="3-3-讲解">3.3 讲解</h5>
 <p><img src="/2019/07/01/JVM虚拟机/1.png" alt></p>
+<h6 id="3-3-1新生代">3.3.1新生代</h6>
+<ul>
+<li>回收效率很高（70-95）</li>
+<li>新生代为3块  比例-》8:1:1</li>
+<li></li>
+</ul>
 <p>​</p>
 
       
@@ -479,7 +485,7 @@
   <p><span>本文标题:</span><a href="/2019/07/01/JVM虚拟机/">JVM虚拟机</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 银尘 的个人博客">银尘</a></p>
   <p><span>发布时间:</span>2019年07月01日 - 09:48</p>
-  <p><span>最后更新:</span>2019年07月01日 - 15:59</p>
+  <p><span>最后更新:</span>2019年07月01日 - 16:11</p>
   <p><span>原始链接:</span><a href="/2019/07/01/JVM虚拟机/" title="JVM虚拟机">http://yoursite.com/2019/07/01/JVM虚拟机/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/07/01/JVM虚拟机/" aria-label="复制成功！"></i></span>
   </p>
@@ -794,7 +800,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">😊JVM虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-jvm结构"><span class="nav-text">一、JVM结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-server端与client端的区别与使用"><span class="nav-text">1、server端与client端的区别与使用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-基本结构"><span class="nav-text">2、基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-类加载子系统与方法区"><span class="nav-text">2.1 类加载子系统与方法区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-java堆"><span class="nav-text">2.2 Java堆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-直接内存"><span class="nav-text">2.3 直接内存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-垃圾回收系统"><span class="nav-text">2.4 垃圾回收系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-java栈"><span class="nav-text">2.5 Java栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-本地方法栈-nativemethod"><span class="nav-text">2.6 本地方法栈(nativemethod)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7-pc寄存器"><span class="nav-text">2.7 PC寄存器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8-执行引擎"><span class="nav-text">2.8 执行引擎</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-jvm堆结构图及分代"><span class="nav-text">3、JVM堆结构图及分代</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-jvm分代策略"><span class="nav-text">3.1 JVM分代策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-为什么要分代-？"><span class="nav-text">3.2 为什么要分代  ？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-讲解"><span class="nav-text">3.3 讲解</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">😊JVM虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-jvm结构"><span class="nav-text">一、JVM结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-server端与client端的区别与使用"><span class="nav-text">1、server端与client端的区别与使用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-基本结构"><span class="nav-text">2、基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-类加载子系统与方法区"><span class="nav-text">2.1 类加载子系统与方法区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-java堆"><span class="nav-text">2.2 Java堆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-直接内存"><span class="nav-text">2.3 直接内存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-垃圾回收系统"><span class="nav-text">2.4 垃圾回收系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-java栈"><span class="nav-text">2.5 Java栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-本地方法栈-nativemethod"><span class="nav-text">2.6 本地方法栈(nativemethod)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7-pc寄存器"><span class="nav-text">2.7 PC寄存器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8-执行引擎"><span class="nav-text">2.8 执行引擎</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-jvm堆结构图及分代"><span class="nav-text">3、JVM堆结构图及分代</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-jvm分代策略"><span class="nav-text">3.1 JVM分代策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-为什么要分代-？"><span class="nav-text">3.2 为什么要分代  ？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-讲解"><span class="nav-text">3.3 讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-3-1新生代"><span class="nav-text">3.3.1新生代</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
