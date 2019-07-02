@@ -2004,7 +2004,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #347a0e;
+  background: #8f003b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3354,4 +3354,14 @@ body {
 }
 .my_post_copyright span {
   color: #000;
+}
+.site-author-name {
+  background-image: -webkit-linear-gradient(bottom, #f00, #fd8403, #ff0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.site-description {
+  background-image: -webkit-linear-gradient(bottom, #a30092, #fd8403, #4d78ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
