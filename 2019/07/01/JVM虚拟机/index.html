@@ -97,7 +97,7 @@
 <meta property="og:description" content="前言  本篇博客是关于JVM虚拟机一些见解 😊JVM虚拟机">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/07/01/JVM虚拟机/1.png">
-<meta property="og:updated_time" content="2019-07-02T02:58:03.993Z">
+<meta property="og:updated_time" content="2019-07-02T07:33:30.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM虚拟机">
 <meta name="twitter:description" content="前言  本篇博客是关于JVM虚拟机一些见解 😊JVM虚拟机">
@@ -771,6 +771,120 @@
 <p>​        当我们把对象拆开，你会发现，对象的属性其实就是数据，存放在堆中；</p>
 <p>​        而对象的行为（方法），就是运行逻辑，放在栈中。</p>
 <p>​        我们在编写对象的时候，其实就是编写了数据结构，也编写了处理数据的逻辑。不得不承认，面向对象的设计，确实很美。</p>
+<h5 id="9-3堆中存储类型与栈中存储类型">9.3堆中存储类型与栈中存储类型</h5>
+<ul>
+<li>
+<p>在上边刚开始的时候已经介绍了Java堆与栈，这里稍微总结一下</p>
+</li>
+<li>
+<p>栈存储的信息都是跟当前线程（或程序）相关的信息。(局部变量、程序运行状态、方法、方法返回值)等，</p>
+</li>
+</ul>
+<blockquote>
+<p>栈中存的是基本数据类型和堆中对象的引用。一个对象的大小是不可估计的，或者说是可以动态变化的，</p>
+<p>但是在栈中，一个对象只对应了一个4byte的引用（堆栈分离的好处）。</p>
+</blockquote>
+<ul>
+<li>堆只负责存储对象信息</li>
+</ul>
+<h5 id="9-4基本数据类型为什么不存放在堆中呢？">9.4基本数据类型为什么不存放在堆中呢？</h5>
+<ul>
+<li>基本数据类型占用空间一般为1-8字节，需要空间少</li>
+<li>堆中存放的是动态增长的数据</li>
+<li>基本数据类型一般长度固定，不会出现动态增长的情况，存放在栈中即可。</li>
+</ul>
+<h5 id="9-5java的参数传递是传值呢？还是传引用呢？">9.5java的参数传递是传值呢？还是传引用呢？</h5>
+<ul>
+<li>
+<p>对象传递是引用值传递，原始数据类型是值传递</p>
+<ul>
+<li>
+<p>代码样例</p>
+<ul>
+<li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.duiXiang;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>public class Test2 {<br>
+public static void main(String[] args) {<br>
+User user = new User();     //对象传递<br>
+int num = 10;               //值传递<br>
+Test3 test3 = new Test3();<br>
+test3.change(user,num);<br>
+System.out.println(user.toString()+“num=”+num);<br>
+}<br>
+}</p>
+<pre><code>  class User{
+      private String name;
+  
+      public String getName() {
+          return name;
+      }
+  
+      public void setName(String name) {
+          this.name = name;
+      }
+  
+      @Override
+      public String toString() {
+          return &quot;User{&quot; +
+                  &quot;name='&quot; + name + '\'' +
+                  '}';
+      }
+  }
+  
+  class Test3{
+      public void change(User user,int num){
+          user.setName(&quot;张三&quot;);
+          num = num+1;
+      }
+  }
+</code></pre>
+<p>​<br>
+/*<br>
+	User{name=‘张三’}num=10<br>
+	读者可以就此例子好好理解一下值传递与引用传递<br>
+*/<br>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">- java中，栈的大小是通过-Xss来设置的，当栈中存储的数据比较多时，需要适当调大这个值，否则会出现java.lang.StackOverflowError异常。</span><br><span class="line"></span><br><span class="line">##### 9.6Java对象的大小如何计算</span><br><span class="line"></span><br><span class="line">- 在**java**中，一个空Object对象的大小是8byte，这个大小只是保存堆中一个没有任何属性的对象的大小。</span><br><span class="line">  - 看看下面语句：</span><br><span class="line">    - Object  ob = new  Object();</span><br><span class="line">  - 这样在程序中完成了一个**java**对象的声明，但是它所占的空间为：4byte+8byte。</span><br><span class="line">- 同时，因为**java**对象大小是**8的整数倍**，因此一个基本类型包装类的大小至少是**16byte**。这个内存占用是很恐怖的，它是使用基本类型的N倍(N&gt;2)，这些类型的内存占用更是夸张。因此，可能的话应尽量少使用包装类。在JDK5.0以后，因为加入了自动类型装换，因此，**java**虚拟机会在存储方面进行相应的优化。</span><br><span class="line"></span><br><span class="line">##### 9.7引用类型（参考&lt;https://blog.csdn.net/qq_19704045/article/details/80646437&gt;）</span><br><span class="line"></span><br><span class="line">&gt; ​	对象引用类型分为四种类型</span><br><span class="line">&gt;</span><br><span class="line">&gt; ​	1、强引用-----我们一般声明对象时虚拟机生成的引用</span><br><span class="line">&gt;</span><br><span class="line">&gt; ​	2、软引用-----一般被作为缓存来使用（**在开发中，可以利用软引用可以实现高速缓存组件。**）</span><br><span class="line">&gt;</span><br><span class="line">&gt; ​	3、弱引用-----弱引用与软引用类似，都是作为缓存来使用</span><br><span class="line">&gt;</span><br><span class="line">&gt; ​	4、虚引用-----顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期</span><br><span class="line"></span><br><span class="line">- **强引用**</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">    Object oa = new Object();       //一个对象实例化</span><br><span class="line">    Object ob = oa;                 //ob与oa拥有同一引用</span><br><span class="line">    oa=null;                        //虽然oa为null，但是ob仍然有指向</span><br><span class="line">    System.gc();</span><br><span class="line">    System.out.println(ob);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>
+<p><strong>强引用并不是造成OOM的关键性因素</strong>，正常来讲，你每一个用户（线程）操作完成后，该对象都可以被很容易的进行回收，不必强制性进行回收。</p>
+</li>
+<li>
+<p><strong>软引用</strong></p>
+<ul>
+<li>
+<p>但是如果要想使用软引用必须单独使用特殊的处理类：java.lang.ref.SoftReference,该类的定义如下：</p>
+</li>
+<li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//软引用</span></span><br><span class="line">String str = <span class="keyword">new</span> String(<span class="string">"OnePeople"</span>);</span><br><span class="line">SoftReference&lt;String&gt; ref = <span class="keyword">new</span> SoftReference&lt;&gt;(str);</span><br><span class="line">str = <span class="keyword">null</span>;</span><br><span class="line">System.gc();</span><br><span class="line">System.out.println(ref.get());</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>弱引用</strong></p>
+<ul>
+<li>
+<p>弱引用最大的特点就是一旦发生了GC的处理操作，则保存的引用内容将立即释放。弱引用使用“WeakReference”类来完成。 java.lang.ref.WeakReference</p>
+</li>
+<li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//弱引用</span></span><br><span class="line">String str1 = <span class="keyword">new</span> String(<span class="string">"YinChen"</span>);</span><br><span class="line">WeakReference&lt;String&gt; ref = <span class="keyword">new</span> WeakReference&lt;&gt;(str1);</span><br><span class="line">str1 = <span class="keyword">null</span>;</span><br><span class="line">System.gc();</span><br><span class="line">System.out.println(ref.get());</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	输出为null</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>虚引用</strong></p>
+<ul>
+<li>幽灵引用指的是什么都不保存，但是又看起来像是保存了一样。 这个的处理类java.lang.ref.PhantomReference。</li>
+<li>程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。</li>
+<li>如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -791,7 +905,7 @@
   <p><span>本文标题:</span><a href="/2019/07/01/JVM虚拟机/">JVM虚拟机</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 银尘(*￣︶￣) 的个人博客">银尘(*￣︶￣)</a></p>
   <p><span>发布时间:</span>2019年07月01日 - 09:48</p>
-  <p><span>最后更新:</span>2019年07月02日 - 10:58</p>
+  <p><span>最后更新:</span>2019年07月02日 - 15:33</p>
   <p><span>原始链接:</span><a href="/2019/07/01/JVM虚拟机/" title="JVM虚拟机">http://yoursite.com/2019/07/01/JVM虚拟机/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/07/01/JVM虚拟机/" aria-label="复制成功！"></i></span>
   </p>
@@ -1106,7 +1220,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">😊JVM虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-jvm结构"><span class="nav-text">一、JVM结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-server端与client端的区别与使用"><span class="nav-text">1、server端与client端的区别与使用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-基本结构"><span class="nav-text">2、基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-类加载子系统与方法区"><span class="nav-text">2.1 类加载子系统与方法区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-java堆"><span class="nav-text">2.2 Java堆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-直接内存"><span class="nav-text">2.3 直接内存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-垃圾回收系统"><span class="nav-text">2.4 垃圾回收系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-java栈"><span class="nav-text">2.5 Java栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-本地方法栈-nativemethod"><span class="nav-text">2.6 本地方法栈(nativemethod)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7-pc寄存器"><span class="nav-text">2.7 PC寄存器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8-执行引擎"><span class="nav-text">2.8 执行引擎</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-jvm堆结构图及分代"><span class="nav-text">3、JVM堆结构图及分代</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-jvm分代策略"><span class="nav-text">3.1 JVM分代策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-为什么要分代-？"><span class="nav-text">3.2 为什么要分代  ？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-讲解"><span class="nav-text">3.3 讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-3-1新生代"><span class="nav-text">3.3.1新生代</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-3-2老年代"><span class="nav-text">3.3.2老年代</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-3-3永久代"><span class="nav-text">3.3.3永久代</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-jvm的垃圾回收算法"><span class="nav-text">4、JVM的垃圾回收算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-引用计数算法"><span class="nav-text">4.1 引用计数算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-复制算法"><span class="nav-text">4.2 复制算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-标记-清除算法-前辈"><span class="nav-text">4.3 标记-清除算法------前辈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-4-标记-整理算法"><span class="nav-text">4.4 标记-整理算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-jvm中的垃圾收集器"><span class="nav-text">5、JVM中的垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-scavenge-gc-次收集-和full-gc-全收集"><span class="nav-text">5.1 Scavenge GC(次收集)和Full GC(全收集)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-次收集与全收集"><span class="nav-text">5.2 次收集与全收集</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-分代垃圾回收器"><span class="nav-text">5.3 分代垃圾回收器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-3-1新生代收集器"><span class="nav-text">5.3.1新生代收集器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-jvm优化"><span class="nav-text">6、JVM优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-jvm常用参数"><span class="nav-text">7、JVM常用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-常见配置"><span class="nav-text">8、常见配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#8-1堆大小设置"><span class="nav-text">8.1堆大小设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-2吞吐量优先的并行收集器"><span class="nav-text">8.2吞吐量优先的并行收集器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-一些问题总结与提出-参考https-www-cnblogs-com-xingzc-p-5756119-html"><span class="nav-text">9、一些问题总结与提出（参考https://www.cnblogs.com/xingzc/p/5756119.html）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#9-1堆和栈的概括"><span class="nav-text">9.1堆和栈的概括</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-2为什么要把堆和栈区分出来？"><span class="nav-text">9.2为什么要把堆和栈区分出来？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#从软件设计的角度看-栈代表了处理逻辑-而堆代表了数据-这样分开-使得处理逻辑更为清晰-分而治之的思想-这种隔离-模块化的思想在软件设计的方方面面都有体现"><span class="nav-text">从软件设计的角度看，栈代表了处理逻辑，而堆代表了数据。这样分开，使得处理逻辑更为清晰。分而治之的思想。这种隔离、模块化的思想在软件设计的方方面面都有体现。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#堆与栈的分离-使得堆中的内容可以被多个栈共享-也可以理解为多个线程访问同一个对象"><span class="nav-text">堆与栈的分离，使得堆中的内容可以被多个栈共享（也可以理解为多个线程访问同一个对象）。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#栈因为运行时的需要-比如保存系统运行的上下文-需要进行地址段的划分"><span class="nav-text">栈因为运行时的需要，比如保存系统运行的上下文，需要进行地址段的划分。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#面向对象就是堆和栈的完美结合"><span class="nav-text">面向对象就是堆和栈的完美结合。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">😊JVM虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-jvm结构"><span class="nav-text">一、JVM结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-server端与client端的区别与使用"><span class="nav-text">1、server端与client端的区别与使用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-基本结构"><span class="nav-text">2、基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-类加载子系统与方法区"><span class="nav-text">2.1 类加载子系统与方法区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-java堆"><span class="nav-text">2.2 Java堆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-直接内存"><span class="nav-text">2.3 直接内存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-垃圾回收系统"><span class="nav-text">2.4 垃圾回收系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-java栈"><span class="nav-text">2.5 Java栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-本地方法栈-nativemethod"><span class="nav-text">2.6 本地方法栈(nativemethod)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7-pc寄存器"><span class="nav-text">2.7 PC寄存器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8-执行引擎"><span class="nav-text">2.8 执行引擎</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-jvm堆结构图及分代"><span class="nav-text">3、JVM堆结构图及分代</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-jvm分代策略"><span class="nav-text">3.1 JVM分代策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-为什么要分代-？"><span class="nav-text">3.2 为什么要分代  ？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-讲解"><span class="nav-text">3.3 讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-3-1新生代"><span class="nav-text">3.3.1新生代</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-3-2老年代"><span class="nav-text">3.3.2老年代</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-3-3永久代"><span class="nav-text">3.3.3永久代</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-jvm的垃圾回收算法"><span class="nav-text">4、JVM的垃圾回收算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-引用计数算法"><span class="nav-text">4.1 引用计数算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-复制算法"><span class="nav-text">4.2 复制算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-标记-清除算法-前辈"><span class="nav-text">4.3 标记-清除算法------前辈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-4-标记-整理算法"><span class="nav-text">4.4 标记-整理算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-jvm中的垃圾收集器"><span class="nav-text">5、JVM中的垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-scavenge-gc-次收集-和full-gc-全收集"><span class="nav-text">5.1 Scavenge GC(次收集)和Full GC(全收集)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-次收集与全收集"><span class="nav-text">5.2 次收集与全收集</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-分代垃圾回收器"><span class="nav-text">5.3 分代垃圾回收器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-3-1新生代收集器"><span class="nav-text">5.3.1新生代收集器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-jvm优化"><span class="nav-text">6、JVM优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-jvm常用参数"><span class="nav-text">7、JVM常用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-常见配置"><span class="nav-text">8、常见配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#8-1堆大小设置"><span class="nav-text">8.1堆大小设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-2吞吐量优先的并行收集器"><span class="nav-text">8.2吞吐量优先的并行收集器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-一些问题总结与提出-参考https-www-cnblogs-com-xingzc-p-5756119-html"><span class="nav-text">9、一些问题总结与提出（参考https://www.cnblogs.com/xingzc/p/5756119.html）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#9-1堆和栈的概括"><span class="nav-text">9.1堆和栈的概括</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-2为什么要把堆和栈区分出来？"><span class="nav-text">9.2为什么要把堆和栈区分出来？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#从软件设计的角度看-栈代表了处理逻辑-而堆代表了数据-这样分开-使得处理逻辑更为清晰-分而治之的思想-这种隔离-模块化的思想在软件设计的方方面面都有体现"><span class="nav-text">从软件设计的角度看，栈代表了处理逻辑，而堆代表了数据。这样分开，使得处理逻辑更为清晰。分而治之的思想。这种隔离、模块化的思想在软件设计的方方面面都有体现。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#堆与栈的分离-使得堆中的内容可以被多个栈共享-也可以理解为多个线程访问同一个对象"><span class="nav-text">堆与栈的分离，使得堆中的内容可以被多个栈共享（也可以理解为多个线程访问同一个对象）。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#栈因为运行时的需要-比如保存系统运行的上下文-需要进行地址段的划分"><span class="nav-text">栈因为运行时的需要，比如保存系统运行的上下文，需要进行地址段的划分。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#面向对象就是堆和栈的完美结合"><span class="nav-text">面向对象就是堆和栈的完美结合。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-3堆中存储类型与栈中存储类型"><span class="nav-text">9.3堆中存储类型与栈中存储类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-4基本数据类型为什么不存放在堆中呢？"><span class="nav-text">9.4基本数据类型为什么不存放在堆中呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-5java的参数传递是传值呢？还是传引用呢？"><span class="nav-text">9.5java的参数传递是传值呢？还是传引用呢？</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
