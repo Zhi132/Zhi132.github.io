@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Hello World | 小白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="Welcome to my blog, enter password to read.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello World">
 <meta property="og:url" content="http://yoursite.com/2019/06/18/hello-world/index.html">
 <meta property="og:site_name" content="小白">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Welcome to my blog, enter password to read.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-24T08:35:59.234Z">
+<meta property="og:updated_time" content="2019-07-04T00:27:12.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:description" content="Welcome to my blog, enter password to read.">
   
     <link rel="alternative" href="/atom.xml" title="小白" type="application/atom+xml">
   
@@ -62,8 +62,6 @@
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/archives">归档</a></li>
-	        
-				<li><a href="/categories/Java知识点">Java知识点</a></li>
 	        
 			</ul>
 		</nav>
@@ -123,8 +121,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -142,14 +138,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/categories/Java知识点">Java知识点</a></li>
+					<li style="width: 50%"><a href="/archives">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -184,23 +178,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<a id="more"></a>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="Welcome to my blog, enter password to read." />
+    <label for="pass">Welcome to my blog, enter password to read.</label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+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
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       
+
+        
+  
+    <div class="declare">
+      <strong>本文作者：</strong>
+      
+        银尘(*￣︶￣)
+      
+      <br>
+      <strong>本文链接：</strong>
+      http://yoursite.com/2019/06/18/hello-world/
+      <br>
+      <strong>版权声明：</strong>
+      本作品采用
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+      进行许可。转载请注明出处！
+      
+    </div>
+  
 
       
         <div class="page-reward">
@@ -335,7 +346,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#quick-start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -561,7 +572,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="https://songvei.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Sv’blogs</a>
+              <a href="https://songvei.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Sv’s blog</a>
             </li>
           
             <li class="search-li">
